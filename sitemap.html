@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap — RDJ Publishers</title>
+  <meta name="description" content="Complete sitemap of all free tools, games, and utilities by RDJ Publishers. Browse every page in one place.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rdjpublishers.github.io/sitemap.html">
+  <link rel="icon" href="Logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0f1e1c;
+      --teal: #0b6e61;
+      --teal-dark: #084d44;
+      --teal-mid: #0d8a79;
+      --teal-pale: #e6f4f2;
+      --teal-faint: #f0f9f7;
+      --gold: #c8892a;
+      --gold-pale: #fdf4e3;
+      --surface: #ffffff;
+      --bg: #f4f6f6;
+      --border: #dde8e6;
+      --muted: #6b8c88;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --shadow-sm: 0 2px 10px rgba(11,110,97,0.07);
+      --shadow-md: 0 6px 24px rgba(11,110,97,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ─────────────────────────── */
+    .site-header {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 100%);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 40px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.4rem 1.6rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #fff; }
+    .breadcrumb span { color: rgba(255,255,255,0.3); }
+    .header-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 0.55rem;
+    }
+    .header-sub {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    /* ── STATS BAR ──────────────────────── */
+    .stats-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .stats-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.6rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .stats-inner::-webkit-scrollbar { display: none; }
+    .stat {
+      flex-shrink: 0;
+      padding: 1rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+      border-right: 1px solid var(--border);
+      min-width: 90px;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ── MAIN LAYOUT ────────────────────── */
+    .main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.6rem 4rem;
+    }
+
+    /* ── SECTION ────────────────────────── */
+    .section { margin-bottom: 2.8rem; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: var(--teal-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--ink);
+      flex: 1;
+    }
+    .section-count {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── PROJECT CARDS GRID ─────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.22s;
+      box-shadow: var(--shadow-sm);
+    }
+    .project-card:hover {
+      border-color: var(--teal);
+      background: var(--teal-faint);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .card-icon img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body { flex: 1; min-width: 0; }
+    .card-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+    .card-desc {
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    .card-foot {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .live-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      background: #e7f9f0;
+      color: #0a8a50;
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+    }
+    .soon-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      background: var(--gold-pale);
+      color: var(--gold);
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+    }
+    .card-date {
+      font-size: 0.62rem;
+      color: var(--muted);
+      margin-left: auto;
+    }
+    .card-arrow {
+      font-size: 0.78rem;
+      color: var(--teal);
+      font-weight: 700;
+      margin-left: auto;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .project-card:hover .card-arrow { opacity: 1; }
+
+    /* ── STATIC PAGES LIST ──────────────── */
+    .pages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .page-row {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+    .page-row:hover {
+      border-color: var(--teal);
+      background: var(--teal-faint);
+      transform: translateX(4px);
+    }
+    .page-emoji {
+      font-size: 1.1rem;
+      width: 32px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .page-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      flex: 1;
+    }
+    .page-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .page-date {
+      font-size: 0.68rem;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 0.15rem 0.55rem;
+      border-radius: 20px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── XML NOTICE ─────────────────────── */
+    .xml-notice {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+    .xml-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .xml-text {
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex: 1;
+    }
+    .xml-text strong { color: var(--ink); }
+    .xml-link {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+      background: var(--teal-pale);
+      padding: 0.35rem 0.9rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .xml-link:hover { background: var(--teal); color: #fff; }
+
+    /* ── FOOTER ─────────────────────────── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.3rem 1.6rem;
+      text-align: center;
+      font-size: 0.73rem;
+      color: var(--muted);
+    }
+    .site-footer a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .site-footer a:hover { text-decoration: underline; }
+    .footer-links { display: flex; gap: 1.2rem; justify-content: center; margin-top: 0.5rem; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ─────────────────────── */
+    @media (max-width: 580px) {
+      .header-inner { padding: 1.8rem 1.2rem 1.5rem; }
+      .main { padding: 1.4rem 1rem 3rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .stats-inner { padding: 0 1rem; }
+      .stat { padding: 0.8rem 1rem; min-width: 72px; }
+      .stat-num { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="breadcrumb">
+      <a href="https://rdjpublishers.github.io/">RDJ Publishers</a>
+      <span>›</span>
+      <span>Sitemap</span>
+    </div>
+    <h1 class="header-title">🗺️ Site Map</h1>
+    <p class="header-sub">Every tool, game, and page on RDJ Publishers — all in one place. Free, no sign-up, works in your browser.</p>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">12</div><div class="stat-lbl">Total Pages</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">Tools</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Games</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">Fun</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Free</div></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- MAIN PAGES -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-icon">📄</div>
+      <h2 class="section-title">Main Pages</h2>
+      <span class="section-count">4 pages</span>
+    </div>
+    <div class="pages-list">
+      <a class="page-row" href="https://rdjpublishers.github.io/">
+        <span class="page-emoji">🏠</span>
+        <div>
+          <div class="page-name">Home</div>
+          <div class="page-note">Browse all tools, games, and categories</div>
+        </div>
+        <span class="page-date">2026-05-17</span>
+      </a>
+      <a class="page-row" href="https://rdjpublishers.github.io/#about">
+        <span class="page-emoji">📖</span>
+        <div>
+          <div class="page-name">About Us</div>
+          <div class="page-note">Who we are and what we build</div>
+        </div>
+        <span class="page-date">2026-05-17</span>
+      </a>
+      <a class="page-row" href="https://rdjpublishers.github.io/#contact">
+        <span class="page-emoji">✉️</span>
+        <div>
+          <div class="page-name">Contact</div>
+          <div class="page-note">Send us ideas, feedback, or questions</div>
+        </div>
+        <span class="page-date">2026-05-17</span>
+      </a>
+      <a class="page-row" href="https://rdjpublishers.github.io/#privacy">
+        <span class="page-emoji">🔒</span>
+        <div>
+          <div class="page-name">Privacy Policy</div>
+          <div class="page-note">How we handle your data (spoiler: we don't collect any)</div>
+        </div>
+        <span class="page-date">2026-05-17</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-icon">🔧</div>
+      <h2 class="section-title">Tools</h2>
+      <span class="section-count">7 live</span>
+    </div>
+    <div class="cards-grid">
+
+      <a class="project-card" href="https://rdjpublishers.github.io/attendance-calculator/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777015709845.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Attendance Calculator</div>
+          <div class="card-desc">Instantly know your attendance %, how many periods you need, and how many days to hit your target.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-17</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/QR-Scanner/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777015742845.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">QR Scanner &amp; Generator</div>
+          <div class="card-desc">Fast, free and privacy-friendly QR scanner and generator — no app download needed.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-17</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Pdf-Toolkit/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777345740634.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">PDF Toolkit</div>
+          <div class="card-desc">Merge, split, compress, OCR, watermark, convert — 38+ PDF tools running entirely in your browser.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-04-28</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/ChromaCut/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777350397458.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">ChromaCut</div>
+          <div class="card-desc">Remove any solid-color background instantly. Pick a color, adjust tolerance, download transparent PNG.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-04-28</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Image-Splitter/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777650939147.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Image Splitter</div>
+          <div class="card-desc">Split JPG, PNG, and WebP images into tiles with custom grids. No upload, no signup.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-01</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Colour-Picker/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777915151129.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Colour Picker</div>
+          <div class="card-desc">Upload any image and click to instantly extract HEX, RGB, and HSL colour values.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-04</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Grammar-Checker/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1778175441559.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Grammar Checker</div>
+          <div class="card-desc">Instantly check writing for grammar and spelling errors. No uploads, no sign-up.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-07</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-icon">🎮</div>
+      <h2 class="section-title">Games</h2>
+      <span class="section-count">3 live</span>
+    </div>
+    <div class="cards-grid">
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Chess-Game/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777015766639.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Chess Game</div>
+          <div class="card-desc">Two-player chess in your browser. Full rules: castling, en passant, pawn promotion. No sign-up.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-17</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Chess-Editor/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777015909721.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Chess Editor</div>
+          <div class="card-desc">Set up any custom chess position, analyse setups, and play instantly. Perfect for content creators.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-04-24</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Wordly-Game/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1778559653217.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Wordly Game</div>
+          <div class="card-desc">Free daily 5-letter word-guessing game. Guess the hidden word in 6 tries. Daily &amp; Infinite modes.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-12</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FUN -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-icon">🎉</div>
+      <h2 class="section-title">Fun</h2>
+      <span class="section-count">1 live</span>
+    </div>
+    <div class="cards-grid">
+
+      <a class="project-card" href="https://rdjpublishers.github.io/Touch-Music/" target="_blank">
+        <div class="card-icon">
+          <img src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1779005125825.png" alt="">
+        </div>
+        <div class="card-body">
+          <div class="card-title">Touch to Music</div>
+          <div class="card-desc">Play 20+ real instrument sounds: Piano, Guitar, Flute, Violin, Sitar, Trumpet, Drums and more.</div>
+          <div class="card-foot">
+            <span class="live-badge">● Live</span>
+            <span class="card-date">2026-05-17</span>
+            <span class="card-arrow">Visit →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- XML NOTICE -->
+  <div class="xml-notice">
+    <span class="xml-icon">📡</span>
+    <div class="xml-text">
+      <strong>Looking for the machine-readable version?</strong><br>
+      The XML sitemap is available for search engines and crawlers.
+    </div>
+    <a class="xml-link" href="/sitemap.xml">View sitemap.xml →</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div>© 2026 RDJ Publishers · All tools are free, no sign-up required.</div>
+  <div class="footer-links">
+    <a href="https://rdjpublishers.github.io/">🏠 Home</a>
+    <a href="https://rdjpublishers.github.io/#about">About</a>
+    <a href="https://rdjpublishers.github.io/#contact">Contact</a>
+    <a href="/sitemap.xml">XML Sitemap</a>
+  </div>
+</footer>
+
+</body>
+</html>
