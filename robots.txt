@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rdjpublishers.github.io/sitemap.xml
-Sitemap: https://rdjpublishers.github.io/sitemap.html
