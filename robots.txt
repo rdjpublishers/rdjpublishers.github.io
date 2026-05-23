@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rdjpublishers.github.io/sitemap.xml
+sitemap: https://rdjpublishers.github.io/sitemap.xml
