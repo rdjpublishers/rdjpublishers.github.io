@@ -1780,7 +1780,7 @@ function exportHTML() {
   // CLEAN: Remove admin state so exported file opens clean on any device
   html = html.replace('<body>', '<body>');
   html = html.replace('<body>', '<body>');
-  html = html.replace('class="admin-strip visible"', 'class="admin-strip"');
+  html = html.replace(/<div class="admin-strip[^>]*>.*?<\/div>/, '');
   html = html.replace('admin-modal-wrap show" id="adminPanelWrap"', 'admin-modal-wrap" id="adminPanelWrap"');
   html = html.replace('admin-modal-wrap" id="adminLoginWrap"', 'admin-modal-wrap" id="adminLoginWrap"');
   html = html.replace(/<div class="toast[^>]*>.*?<\/div>/, '');
@@ -1827,7 +1827,7 @@ async function publishToGitHub() {
   let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
   html = html.replace('<body>', '<body>');
   html = html.replace('<body>', '<body>');
-  html = html.replace('class="admin-strip visible"', 'class="admin-strip"');
+  html = html.replace(/<div class="admin-strip[^>]*>.*?<\/div>/, '');
   html = html.replace('admin-modal-wrap show" id="adminPanelWrap"', 'admin-modal-wrap" id="adminPanelWrap"');
   html = html.replace('admin-modal-wrap" id="adminLoginWrap"', 'admin-modal-wrap" id="adminLoginWrap"');
   html = html.replace(/(<input[^>]*id="gh-token-input"[^>]*value=")[^"]*(")/g, '$1$2');
