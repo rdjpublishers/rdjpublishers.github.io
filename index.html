@@ -1769,6 +1769,7 @@ function exportHTML() {
   html = html.replace('class="admin-strip visible"', 'class="admin-strip"');
   html = html.replace('admin-modal-wrap show" id="adminPanelWrap"', 'admin-modal-wrap" id="adminPanelWrap"');
   html = html.replace('admin-modal-wrap" id="adminLoginWrap"', 'admin-modal-wrap" id="adminLoginWrap"');
+  html = html.replace(/<div class="toast[^>]*>.*?<\/div>/, '');
   // Replace JSON data block with latest data
   const OPEN  = '<script id="rdj-data" type="application/json">';
   const CLOSE = '<\/script>';
@@ -1816,6 +1817,7 @@ async function publishToGitHub() {
   html = html.replace('admin-modal-wrap show" id="adminPanelWrap"', 'admin-modal-wrap" id="adminPanelWrap"');
   html = html.replace('admin-modal-wrap" id="adminLoginWrap"', 'admin-modal-wrap" id="adminLoginWrap"');
   html = html.replace(/(<input[^>]*id="gh-token-input"[^>]*value=")[^"]*(")/g, '$1$2');
+  html = html.replace(/<div class="toast[^>]*>.*?<\/div>/, '');
   const OPEN  = '<script id="rdj-data" type="application/json">';
   const CLOSE = '<\/script>';
   const startIdx = html.indexOf(OPEN);
