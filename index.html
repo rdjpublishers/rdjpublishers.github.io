@@ -607,17 +607,17 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
               <label>Icon</label>
               <div class="icon-field-wrap">
                 <div class="icon-toggle">
-                  <button id="icon-mode-emoji" class="" onclick="setIconMode('emoji')">Emoji</button>
-                  <button id="icon-mode-image" onclick="setIconMode('image')" class="active">Image</button>
+                  <button id="icon-mode-emoji" class="active" onclick="setIconMode('emoji')">Emoji</button>
+                  <button id="icon-mode-image" onclick="setIconMode('image')" class="">Image</button>
                 </div>
                 <!-- Emoji mode -->
-                <div id="icon-emoji-section" style="display: none;">
+                <div id="icon-emoji-section" style="">
                   <input type="text" id="f-icon" placeholder="📅" maxlength="8">
                 </div>
                 <!-- Image mode -->
-                <div id="icon-image-section" style="">
+                <div id="icon-image-section" style="display: none;">
                   <div class="icon-preview-wrap">
-                    <img id="icon-img-preview" class="icon-img-preview visible" src="https://raw.githubusercontent.com/rdjpublishers/rdjpublishers.github.io/main/images/icon-1777015709845.png" alt="preview">
+                    <img id="icon-img-preview" class="icon-img-preview" src="" alt="preview">
                     <label class="icon-upload-label">
                       📷 Choose Image
                       <input type="file" id="f-icon-file" accept="image/*" style="display:none;" onchange="onIconFileChange(event)">
@@ -658,7 +658,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
             </div>
           </div>
         </div>
-        <input type="hidden" id="f-edit-id" value="p1">
+        <input type="hidden" id="f-edit-id" value="">
         <div class="admin-actions">
           <button class="btn-cancel" onclick="cancelEdit()">← Back</button>
           <button class="btn-save" onclick="saveProject()">💾 Save Project</button>
@@ -1026,7 +1026,7 @@ Tools at Your Fingertips</p>
       "title": "Attendance Calculator",
       "desc": "A fast, free, and offline-ready Attendance Percentage Calculator. Instantly know your current attendance %, how many more periods you need, and how many days to attend to hit your target.",
       "status": "live",
-      "url": "https://rdjpublishers.github.io/attendance-calculator/"
+      "url": "https://rdjpublishers.com/attendance-calculator/"
     },
     {
       "id": "p2",
