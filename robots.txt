@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rdjpublishers.com/sitemap_index.xml
+Sitemap: https://rdjpublishers.com/sitemap.xml
