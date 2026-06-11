@@ -376,7 +376,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
       <p class="hint">This panel is restricted to the site owner only.</p>
       <input class="admin-input" type="password" id="adminPass" placeholder="Enter your password" onkeydown="if(event.key==='Enter')doLogin()">
       <button class="admin-btn" onclick="doLogin()">Sign In</button>
-      <div class="admin-err" id="adminErr">Incorrect password. Try again.</div>
+      <div class="admin-err" id="adminErr"></div>
     </div>
   </div>
 </div>
@@ -1884,9 +1884,7 @@ function renderExportCount() {
     'Ready to export: ' + projects.length + ' projects (' + live + ' live, ' + soon + ' coming soon)';
 }
 function buildCleanHTML() {
-  // ── Step 1: Manipulate DOM directly so outerHTML is already clean ──
-
-  // Snapshot state we need to restore after
+  // ── Step 1: Snapshot then clean the DOM directly ──
   const panelWrap   = document.getElementById('adminPanelWrap');
   const loginWrap   = document.getElementById('adminLoginWrap');
   const adminStrip  = document.getElementById('adminStrip');
@@ -1899,18 +1897,18 @@ function buildCleanHTML() {
   const tabHero     = document.getElementById('tab-hero');
   const tabList     = document.getElementById('tab-list');
 
-  // Snapshot restorable state
+  // Snapshot
   const panelWasOpen  = panelWrap  && panelWrap.classList.contains('show');
   const loginWasOpen  = loginWrap  && loginWrap.classList.contains('show');
   const stripVisible  = adminStrip && adminStrip.classList.contains('visible');
   const dotBg         = adminDot   ? adminDot.style.background : '';
   const bodyAdminMode = document.body.classList.contains('admin-mode');
-  const btnLabel      = publishBtn  ? publishBtn.textContent : '';
-  const btnDisabled   = publishBtn  ? publishBtn.disabled : false;
-  const statusText    = ghStatus    ? ghStatus.textContent : '';
-  const statusColor   = ghStatus    ? ghStatus.style.color : '';
+  const btnLabel      = publishBtn ? publishBtn.textContent : '';
+  const btnDisabled   = publishBtn ? publishBtn.disabled : false;
+  const statusText    = ghStatus   ? ghStatus.textContent : '';
+  const statusColor   = ghStatus   ? ghStatus.style.color : '';
 
-  // Apply clean state directly to DOM
+  // Apply clean state directly to DOM before outerHTML capture
   if (panelWrap)  panelWrap.classList.remove('show');
   if (loginWrap)  loginWrap.classList.remove('show');
   if (adminStrip) adminStrip.classList.remove('visible');
@@ -1918,14 +1916,14 @@ function buildCleanHTML() {
   document.body.classList.remove('admin-mode');
   if (publishBtn) { publishBtn.disabled = false; publishBtn.textContent = '🚀 Publish to GitHub'; }
   if (ghStatus)   { ghStatus.textContent = ''; }
-  if (tabExport)  tabExport.style.display  = 'none';
-  if (tabAdd)     tabAdd.style.display     = 'none';
-  if (tabCats)    tabCats.style.display    = 'none';
-  if (tabHero)    tabHero.style.display    = 'none';
-  if (tabList)    tabList.style.display    = 'block';
+  if (tabExport)  tabExport.style.display = 'none';
+  if (tabAdd)     tabAdd.style.display    = 'none';
+  if (tabCats)    tabCats.style.display   = 'none';
+  if (tabHero)    tabHero.style.display   = 'none';
+  if (tabList)    tabList.style.display   = 'block';
   document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
 
-  // ── Step 2: Capture clean outerHTML and update embedded data ──
+  // ── Step 2: Capture clean HTML and update embedded data ──
   const projects   = getProjects();
   const meta       = getMeta();
   const categories = getCategories();
@@ -1971,36 +1969,59 @@ async function publishToGitHub() {
     return;
   }
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Publishing…'; }
-  if (statusEl) { statusEl.textContent = '⏳ Fetching current file…'; statusEl.style.color = 'rgba(255,255,255,0.6)'; }
-  try {
-    const OWNER = 'rdjpublishers', REPO = 'rdjpublishers.com', FILE = 'index.html';
-    const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
-    // Get current SHA
-    const getRes = await fetch(API, {
+
+  const OWNER = 'rdjpublishers', REPO = 'rdjpublishers.com';
+  const commitMsg = `Update site — ${new Date().toLocaleString()}`;
+
+  // Get current SHA for a file (returns null if it doesn't exist yet)
+  async function getFileSHA(file) {
+    const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${file}`, {
       headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
     });
-    if (!getRes.ok) throw new Error('Could not fetch file: ' + getRes.status);
-    const current = await getRes.json();
-    const sha = current.sha;
-    // Build clean HTML (admin state stripped)
-    const html = buildCleanHTML();
-    // Encode to base64
-    const encoded = btoa(unescape(encodeURIComponent(html)));
-    if (statusEl) statusEl.textContent = '⏳ Pushing to GitHub…';
-    const putRes = await fetch(API, {
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error(`Could not fetch ${file}: ${res.status}`);
+    return (await res.json()).sha;
+  }
+
+  // Push one file to GitHub
+  async function pushFile(file, textContent, sha) {
+    const encoded = btoa(unescape(encodeURIComponent(textContent)));
+    const body = { message: commitMsg, content: encoded };
+    if (sha) body.sha = sha;
+    const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${file}`, {
       method: 'PUT',
       headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: `Update site — ${new Date().toLocaleString()}`, content: encoded, sha })
+      body: JSON.stringify(body)
     });
-    if (!putRes.ok) { const err = await putRes.json(); throw new Error(err.message || 'Push failed: ' + putRes.status); }
-    if (statusEl) { statusEl.textContent = '✅ Published! Changes are live on GitHub.'; statusEl.style.color = '#4ade80'; }
+    if (!res.ok) { const err = await res.json(); throw new Error(err.message || `Push failed for ${file}: ${res.status}`); }
+  }
+
+  const setStatus = (msg, color) => {
+    if (statusEl) { statusEl.textContent = msg; statusEl.style.color = color || 'rgba(255,255,255,0.6)'; }
+  };
+
+  try {
+    // 1 / 3 — index.html
+    setStatus('⏳ Pushing index.html… (1/3)');
+    await pushFile('index.html', buildCleanHTML(), await getFileSHA('index.html'));
+
+    // 2 / 3 — sitemap.html
+    setStatus('⏳ Pushing sitemap.html… (2/3)');
+    await pushFile('sitemap.html', generateSitemapHTML(), await getFileSHA('sitemap.html'));
+
+    // 3 / 3 — sitemap.xml
+    setStatus('⏳ Pushing sitemap.xml… (3/3)');
+    await pushFile('sitemap.xml', generateSitemapXML(), await getFileSHA('sitemap.xml'));
+
+    setStatus('✅ All 3 files published!', '#4ade80');
     showToast('✅ Published to GitHub!');
   } catch(err) {
-    if (statusEl) { statusEl.textContent = '❌ ' + err.message; statusEl.style.color = '#f87171'; }
+    setStatus('❌ ' + err.message, '#f87171');
   } finally {
-    if (btn) { btn.disabled = false; btn.textContent = '⚡ Save & Publish to GitHub'; }
+    if (btn) { btn.disabled = false; btn.textContent = '🚀 Publish to GitHub'; }
   }
 }
+
 // ══════════════════════════════════════════════════════════════
 //  RENDER ALL — updates every dynamic section on the page
 // ══════════════════════════════════════════════════════════════
