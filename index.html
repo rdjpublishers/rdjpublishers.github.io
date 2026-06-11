@@ -666,52 +666,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
       </div>
       <!-- ── CATEGORIES TAB ── -->
       <div id="tab-cats" style="display: none;">
-        <div class="admin-cat-list" id="adminCatList"><div class="admin-cat-item">
-      <div class="ci-icon">🔧</div>
-      <div class="ci-info">
-        <div class="ci-name">Tools</div>
-        <div class="ci-id">ID: tools</div>
-      </div>
-      <div class="pi-btns">
-        <button class="pi-btn del" title="Delete" onclick="deleteCategory('tools')">🗑️</button>
-      </div>
-    </div><div class="admin-cat-item">
-      <div class="ci-icon">🎮</div>
-      <div class="ci-info">
-        <div class="ci-name">Games</div>
-        <div class="ci-id">ID: games</div>
-      </div>
-      <div class="pi-btns">
-        <button class="pi-btn del" title="Delete" onclick="deleteCategory('games')">🗑️</button>
-      </div>
-    </div><div class="admin-cat-item">
-      <div class="ci-icon">⚙️</div>
-      <div class="ci-info">
-        <div class="ci-name">Utilities</div>
-        <div class="ci-id">ID: utilities</div>
-      </div>
-      <div class="pi-btns">
-        <button class="pi-btn del" title="Delete" onclick="deleteCategory('utilities')">🗑️</button>
-      </div>
-    </div><div class="admin-cat-item">
-      <div class="ci-icon">🎉</div>
-      <div class="ci-info">
-        <div class="ci-name">Fun</div>
-        <div class="ci-id">ID: fun</div>
-      </div>
-      <div class="pi-btns">
-        <button class="pi-btn del" title="Delete" onclick="deleteCategory('fun')">🗑️</button>
-      </div>
-    </div><div class="admin-cat-item">
-      <div class="ci-icon">📈</div>
-      <div class="ci-info">
-        <div class="ci-name">Productivity</div>
-        <div class="ci-id">ID: productivity</div>
-      </div>
-      <div class="pi-btns">
-        <button class="pi-btn del" title="Delete" onclick="deleteCategory('productivity')">🗑️</button>
-      </div>
-    </div></div>
+        <div class="admin-cat-list" id="adminCatList"></div>
         <div style="background:var(--bg);border-radius:10px;padding:1rem;border:1.5px solid var(--border);">
           <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.7rem;">➕ Add New Category</div>
           <div class="admin-form-grid">
@@ -803,7 +758,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
     <div class="topbar-right">
       <a onclick="goTo('about')">About</a>
       <a onclick="goTo('contact')">Contact</a>
-      <div class="admin-dot" id="adminDot" title="Owner access" onclick="openAdminEntry()" style="background: rgb(34, 197, 94);"></div>
+      <div class="admin-dot" id="adminDot" title="Owner access" onclick="openAdminEntry()"  style=""></div>
     </div>
   </div>
   <div class="page-content">
@@ -1966,7 +1921,7 @@ function buildCleanHTML() {
   html = html.replace(/(<div[^>]*id="adminStrip"[^>]*class="[^"]*)\bvisible\b([^"]*")/g, '$1$2');
 
   // 5. Reset the admin dot color to default
-  html = html.replace(/(<div[^>]*id="adminDot"[^>]*style="[^"]*background:\s*)#22c55e([^"]*")/g, '$1$2');
+  html = html.replace(/(<div[^>]*id="adminDot"[^>]*)\s*style="[^"]*"/g, '$1 style=""');
 
   // 6. Force all tab divs hidden except the list tab (so next open lands on Projects)
   html = html.replace(/(<div\s+id="tab-export"[^>]*style=")[^"]*(")/g, '$1display: none;$2');
