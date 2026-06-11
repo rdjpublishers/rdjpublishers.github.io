@@ -376,7 +376,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
       <p class="hint">This panel is restricted to the site owner only.</p>
       <input class="admin-input" type="password" id="adminPass" placeholder="Enter your password" onkeydown="if(event.key==='Enter')doLogin()">
       <button class="admin-btn" onclick="doLogin()">Sign In</button>
-      <div class="admin-err" id="adminErr"></div>
+      <div class="admin-err" id="adminErr">Incorrect password. Try again.</div>
     </div>
   </div>
 </div>
@@ -734,7 +734,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
           <div style="display:flex;flex-direction:column;gap:.5rem;">
             <input class="admin-input" type="password" id="gh-token-input" placeholder="Paste your GitHub token here" autocomplete="off" style="margin-bottom:0;background:#1a2e2b;border-color:rgba(255,255,255,0.15);color:#fff;">
             <div id="gh-token-input::placeholder" style="display:none;"></div>
-            <button onclick="publishToGitHub()" id="gh-publish-btn" style="width: 100%; padding: 0.75rem; background: rgb(22, 163, 74); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 9px; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: 0.2s;" >🚀 Publish to GitHub</button>
+            <button onclick="publishToGitHub()" id="gh-publish-btn" style="width: 100%; padding: 0.75rem; background: rgb(22, 163, 74); color: rgb(255, 255, 255); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 9px; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: 0.2s;">🚀 Publish to GitHub</button>
           </div>
           <div id="gh-status" style="font-size: 0.75rem; text-align: center; margin-top: 0.6rem; min-height: 1em; color: rgba(255, 255, 255, 0.6);"></div>
         </div>
@@ -743,7 +743,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
   </div>
 </div>
 <!-- ADMIN STRIP -->
-<div class="admin-strip visible" id="adminStrip">
+<div class="admin-strip" id="adminStrip">
   <span>⚙️ Admin Mode Active</span>
   <button onclick="doLogout()">Sign Out</button>
 </div>
@@ -758,7 +758,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
     <div class="topbar-right">
       <a onclick="goTo('about')">About</a>
       <a onclick="goTo('contact')">Contact</a>
-      <div class="admin-dot" id="adminDot" title="Owner access" onclick="openAdminEntry()"  style=""></div>
+      <div class="admin-dot" id="adminDot" title="Owner access" onclick="openAdminEntry()" style=""></div>
     </div>
   </div>
   <div class="page-content">
@@ -1884,59 +1884,68 @@ function renderExportCount() {
     'Ready to export: ' + projects.length + ' projects (' + live + ' live, ' + soon + ' coming soon)';
 }
 function buildCleanHTML() {
-  // Close all admin modals/panels BEFORE capturing outerHTML
-  // so the live DOM is clean first
-  const panelWrap = document.getElementById('adminPanelWrap');
-  const loginWrap = document.getElementById('adminLoginWrap');
-  const panelWasOpen = panelWrap && panelWrap.classList.contains('show');
-  const loginWasOpen = loginWrap && loginWrap.classList.contains('show');
-  if (panelWrap) panelWrap.classList.remove('show');
-  if (loginWrap) loginWrap.classList.remove('show');
+  // ── Step 1: Manipulate DOM directly so outerHTML is already clean ──
 
-  const projects  = getProjects();
-  const meta      = getMeta();
+  // Snapshot state we need to restore after
+  const panelWrap   = document.getElementById('adminPanelWrap');
+  const loginWrap   = document.getElementById('adminLoginWrap');
+  const adminStrip  = document.getElementById('adminStrip');
+  const adminDot    = document.getElementById('adminDot');
+  const publishBtn  = document.getElementById('gh-publish-btn');
+  const ghStatus    = document.getElementById('gh-status');
+  const tabExport   = document.getElementById('tab-export');
+  const tabAdd      = document.getElementById('tab-add');
+  const tabCats     = document.getElementById('tab-cats');
+  const tabHero     = document.getElementById('tab-hero');
+  const tabList     = document.getElementById('tab-list');
+
+  // Snapshot restorable state
+  const panelWasOpen  = panelWrap  && panelWrap.classList.contains('show');
+  const loginWasOpen  = loginWrap  && loginWrap.classList.contains('show');
+  const stripVisible  = adminStrip && adminStrip.classList.contains('visible');
+  const dotBg         = adminDot   ? adminDot.style.background : '';
+  const bodyAdminMode = document.body.classList.contains('admin-mode');
+  const btnLabel      = publishBtn  ? publishBtn.textContent : '';
+  const btnDisabled   = publishBtn  ? publishBtn.disabled : false;
+  const statusText    = ghStatus    ? ghStatus.textContent : '';
+  const statusColor   = ghStatus    ? ghStatus.style.color : '';
+
+  // Apply clean state directly to DOM
+  if (panelWrap)  panelWrap.classList.remove('show');
+  if (loginWrap)  loginWrap.classList.remove('show');
+  if (adminStrip) adminStrip.classList.remove('visible');
+  if (adminDot)   adminDot.style.background = '';
+  document.body.classList.remove('admin-mode');
+  if (publishBtn) { publishBtn.disabled = false; publishBtn.textContent = '🚀 Publish to GitHub'; }
+  if (ghStatus)   { ghStatus.textContent = ''; }
+  if (tabExport)  tabExport.style.display  = 'none';
+  if (tabAdd)     tabAdd.style.display     = 'none';
+  if (tabCats)    tabCats.style.display    = 'none';
+  if (tabHero)    tabHero.style.display    = 'none';
+  if (tabList)    tabList.style.display    = 'block';
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+
+  // ── Step 2: Capture clean outerHTML and update embedded data ──
+  const projects   = getProjects();
+  const meta       = getMeta();
   const categories = getCategories();
-  const newData   = JSON.stringify({ projects, meta, categories }, null, 2);
+  const newData    = JSON.stringify({ projects, meta, categories }, null, 2);
 
   let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
 
-  // Restore panels so the user's UI isn't disrupted
-  if (panelWasOpen && panelWrap) panelWrap.classList.add('show');
-  if (loginWasOpen && loginWrap) loginWrap.classList.add('show');
-
-  // 1. Update the embedded JSON data block
   html = html.replace(
     /(<script[^>]*id="rdj-data"[^>]*>)[\s\S]*?(<\/script>)/,
     '$1\n' + newData + '\n$2'
   );
 
-  // 2. Strip .show from both admin modals so they open hidden
-  html = html.replace(/(<div[^>]*id="adminPanelWrap"[^>]*class="[^"]*)\bshow\b([^"]*")/g, '$1$2');
-  html = html.replace(/(<div[^>]*id="adminLoginWrap"[^>]*class="[^"]*)\bshow\b([^"]*")/g, '$1$2');
-
-  // 3. Strip admin-mode class from <body>
-  html = html.replace(/(<body[^>]*class="[^"]*)\badmin-mode\b([^"]*")/g, '$1$2');
-
-  // 4. Strip .visible from adminStrip
-  html = html.replace(/(<div[^>]*id="adminStrip"[^>]*class="[^"]*)\bvisible\b([^"]*")/g, '$1$2');
-
-  // 5. Reset the admin dot color to default
-  html = html.replace(/(<div[^>]*id="adminDot"[^>]*)\s*style="[^"]*"/g, '$1 style=""');
-
-  // 6. Force all tab divs hidden except the list tab (so next open lands on Projects)
-  html = html.replace(/(<div\s+id="tab-export"[^>]*style=")[^"]*(")/g, '$1display: none;$2');
-  html = html.replace(/(<div\s+id="tab-add"[^>]*style=")[^"]*(")/g, '$1display: none;$2');
-  html = html.replace(/(<div\s+id="tab-cats"[^>]*style=")[^"]*(")/g, '$1display: none;$2');
-  html = html.replace(/(<div\s+id="tab-hero"[^>]*style=")[^"]*(")/g, '$1display: none;$2');
-  html = html.replace(/(<div\s+id="tab-list"[^>]*style=")[^"]*(")/g, '$1display: block;$2');
-
-  // 7. Remove active class from all admin-tab buttons, set Projects as active
-  html = html.replace(/(<button[^>]*class="admin-tab)\s*active([^"]*"[^>]*onclick="switchTab\('[^']+'\)")/g, '$1$2');
-
-  // 8. Reset publish button to idle state (remove disabled, restore label and status)
-  html = html.replace(/(<button[^>]*id="gh-publish-btn"[^>]*)\s*disabled="[^"]*"/g, '$1');
-  html = html.replace(/(<button[^>]*id="gh-publish-btn"[^>]*>)[^<]*(<\/button>)/g, '$1🚀 Publish to GitHub$2');
-  html = html.replace(/(<div[^>]*id="gh-status"[^>]*>)[^<]*(<\/div>)/g, '$1$2');
+  // ── Step 3: Restore DOM so user's session is unaffected ──
+  if (panelWasOpen  && panelWrap)  panelWrap.classList.add('show');
+  if (loginWasOpen  && loginWrap)  loginWrap.classList.add('show');
+  if (stripVisible  && adminStrip) adminStrip.classList.add('visible');
+  if (adminDot)      adminDot.style.background = dotBg;
+  if (bodyAdminMode) document.body.classList.add('admin-mode');
+  if (publishBtn)  { publishBtn.disabled = btnDisabled; publishBtn.textContent = btnLabel; }
+  if (ghStatus)    { ghStatus.textContent = statusText; ghStatus.style.color = statusColor; }
 
   return html;
 }
@@ -1962,59 +1971,34 @@ async function publishToGitHub() {
     return;
   }
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Publishing…'; }
-
-  const OWNER = 'rdjpublishers', REPO = 'rdjpublishers.com';
-  const commitMsg = `Update site — ${new Date().toLocaleString()}`;
-
-  // Helper: get current SHA for a file (null if it doesn't exist yet)
-  async function getFileSHA(file) {
-    const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${file}`, {
+  if (statusEl) { statusEl.textContent = '⏳ Fetching current file…'; statusEl.style.color = 'rgba(255,255,255,0.6)'; }
+  try {
+    const OWNER = 'rdjpublishers', REPO = 'rdjpublishers.com', FILE = 'index.html';
+    const API = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+    // Get current SHA
+    const getRes = await fetch(API, {
       headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
     });
-    if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`Could not fetch ${file}: ${res.status}`);
-    return (await res.json()).sha;
-  }
-
-  // Helper: push one file to GitHub
-  async function pushFile(file, textContent, sha) {
-    const encoded = btoa(unescape(encodeURIComponent(textContent)));
-    const body = { message: commitMsg, content: encoded };
-    if (sha) body.sha = sha;
-    const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${file}`, {
+    if (!getRes.ok) throw new Error('Could not fetch file: ' + getRes.status);
+    const current = await getRes.json();
+    const sha = current.sha;
+    // Build clean HTML (admin state stripped)
+    const html = buildCleanHTML();
+    // Encode to base64
+    const encoded = btoa(unescape(encodeURIComponent(html)));
+    if (statusEl) statusEl.textContent = '⏳ Pushing to GitHub…';
+    const putRes = await fetch(API, {
       method: 'PUT',
       headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify({ message: `Update site — ${new Date().toLocaleString()}`, content: encoded, sha })
     });
-    if (!res.ok) { const err = await res.json(); throw new Error(err.message || `Push failed for ${file}: ${res.status}`); }
-  }
-
-  const setStatus = (msg, color) => {
-    if (statusEl) { statusEl.textContent = msg; statusEl.style.color = color || 'rgba(255,255,255,0.6)'; }
-  };
-
-  try {
-    // 1 / 3 — index.html
-    setStatus('⏳ Pushing index.html… (1/3)');
-    const indexSHA = await getFileSHA('index.html');
-    await pushFile('index.html', buildCleanHTML(), indexSHA);
-
-    // 2 / 3 — sitemap.html
-    setStatus('⏳ Pushing sitemap.html… (2/3)');
-    const sitemapHTMLSHA = await getFileSHA('sitemap.html');
-    await pushFile('sitemap.html', generateSitemapHTML(), sitemapHTMLSHA);
-
-    // 3 / 3 — sitemap.xml
-    setStatus('⏳ Pushing sitemap.xml… (3/3)');
-    const sitemapXMLSHA = await getFileSHA('sitemap.xml');
-    await pushFile('sitemap.xml', generateSitemapXML(), sitemapXMLSHA);
-
-    setStatus('✅ All 3 files published!', '#4ade80');
+    if (!putRes.ok) { const err = await putRes.json(); throw new Error(err.message || 'Push failed: ' + putRes.status); }
+    if (statusEl) { statusEl.textContent = '✅ Published! Changes are live on GitHub.'; statusEl.style.color = '#4ade80'; }
     showToast('✅ Published to GitHub!');
   } catch(err) {
-    setStatus('❌ ' + err.message, '#f87171');
+    if (statusEl) { statusEl.textContent = '❌ ' + err.message; statusEl.style.color = '#f87171'; }
   } finally {
-    if (btn) { btn.disabled = false; btn.textContent = '🚀 Publish to GitHub'; }
+    if (btn) { btn.disabled = false; btn.textContent = '⚡ Save & Publish to GitHub'; }
   }
 }
 // ══════════════════════════════════════════════════════════════
