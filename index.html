@@ -1907,6 +1907,13 @@ function buildCleanHTML() {
   const btnDisabled   = publishBtn ? publishBtn.disabled : false;
   const statusText    = ghStatus   ? ghStatus.textContent : '';
   const statusColor   = ghStatus   ? ghStatus.style.color : '';
+  // ── FIX: snapshot tab display states so we can restore them after capture ──
+  const tabExportDisp = tabExport ? tabExport.style.display : '';
+  const tabAddDisp    = tabAdd    ? tabAdd.style.display    : '';
+  const tabCatsDisp   = tabCats   ? tabCats.style.display   : '';
+  const tabHeroDisp   = tabHero   ? tabHero.style.display   : '';
+  const tabListDisp   = tabList   ? tabList.style.display   : '';
+  const activeAdminTabs = Array.from(document.querySelectorAll('.admin-tab.active'));
 
   // Apply clean state directly to DOM before outerHTML capture
   if (panelWrap)  panelWrap.classList.remove('show');
@@ -1944,6 +1951,13 @@ function buildCleanHTML() {
   if (bodyAdminMode) document.body.classList.add('admin-mode');
   if (publishBtn)  { publishBtn.disabled = btnDisabled; publishBtn.textContent = btnLabel; }
   if (ghStatus)    { ghStatus.textContent = statusText; ghStatus.style.color = statusColor; }
+  // ── FIX: restore tab display states (these contain gh-status and gh-publish-btn) ──
+  if (tabExport) tabExport.style.display = tabExportDisp;
+  if (tabAdd)    tabAdd.style.display    = tabAddDisp;
+  if (tabCats)   tabCats.style.display   = tabCatsDisp;
+  if (tabHero)   tabHero.style.display   = tabHeroDisp;
+  if (tabList)   tabList.style.display   = tabListDisp;
+  activeAdminTabs.forEach(b => b.classList.add('active'));
 
   return html;
 }
