@@ -3,25 +3,25 @@
 
   <url>
     <loc>https://rdjpublishers.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://rdjpublishers.com/attendance-calculator/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rdjpublishers.com/Chess-Game/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rdjpublishers.com/QR-Scanner/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -92,9 +92,9 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://rdjpublishers.com/creator/</loc>
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-</url>
+    <loc>https://rdjpublishers.com/digital_calculator/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
