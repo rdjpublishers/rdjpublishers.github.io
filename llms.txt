@@ -1,0 +1,37 @@
+# RDJ Publishers
+
+> RDJ Publishers is a free, no-sign-up collection of browser-based tools, games, and productivity utilities for students and everyday users. Every tool runs entirely client-side — nothing is uploaded to a server.
+
+RDJ Publishers is a small, independent web studio based in Tamil Nadu, India. All tools are free forever, require no login, and work instantly in the browser.
+
+## Main Pages
+
+- [Home](https://rdjpublishers.com/): Full directory of tools, games, and utilities by category
+- [About](https://rdjpublishers.com/about.html): Who RDJ Publishers is and why the site exists
+- [Contact](https://rdjpublishers.com/contact.html): Get in touch with the team
+- [Sitemap](https://rdjpublishers.com/sitemap.html): Full list of live projects
+- [Privacy Policy](https://rdjpublishers.com/privacy-policy.html)
+- [Terms and Conditions](https://rdjpublishers.com/terms.html)
+
+## Tools & Apps
+
+- [Digital Calculator](https://rdjpublishers.com/digital_calculator/): Free online calculator
+- [3D Model Viewer](https://rdjpublishers.com/3d-model-viewer/): View 3D models in the browser
+- [Prompt Gallery](https://rdjpublishers.com/Prompt-Gallery/): Browse and copy AI prompts
+- [Attendance Calculator](https://rdjpublishers.com/attendance-calculator/): Calculate class attendance percentage
+- [Chess Game](https://rdjpublishers.com/Chess-Game/): Play chess in the browser
+- [Chess Editor](https://rdjpublishers.com/Chess-Editor/): Set up and edit chess positions
+- [QR Scanner](https://rdjpublishers.com/QR-Scanner/): Scan QR codes using your camera
+- [PDF Toolkit](https://rdjpublishers.com/Pdf-Toolkit/): Merge, split, and edit PDF files
+- [ChromaCut](https://rdjpublishers.com/ChromaCut/): Background removal / color tool
+- [Image Splitter](https://rdjpublishers.com/Image-Splitter/): Split images into grids
+- [Colour Picker](https://rdjpublishers.com/Colour-Picker/): Pick and copy colour codes
+- [Grammar Checker](https://rdjpublishers.com/Grammar-Checker/): Check grammar in text
+- [Wordly Game](https://rdjpublishers.com/Wordly-Game/): Word-guessing game
+- [Touch to Music](https://rdjpublishers.com/Touch-Music/): Interactive music tool
+- [RDJ Blogs](https://rdjpublishers.com/blogs/): Articles and guides from RDJ Publishers
+
+## Notes
+
+- All tools are 100% free, require no account, and process data locally in the browser.
+- Optional: See [sitemap.xml](https://rdjpublishers.com/sitemap.xml) for full crawl metadata.
