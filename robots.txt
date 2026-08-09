@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rdjpublishers.com/sitemap.xml
+Sitemap: https://rdjpublishers.com/blogs/sitemap_blogs.xml
