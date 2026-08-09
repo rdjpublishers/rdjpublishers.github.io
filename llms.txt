@@ -27,7 +27,7 @@ RDJ Publishers is a small, independent web studio based in Tamil Nadu, India. Al
 - [Image Splitter](https://rdjpublishers.com/Image-Splitter/): Split images into grids
 - [Colour Picker](https://rdjpublishers.com/Colour-Picker/): Pick and copy colour codes
 - [Grammar Checker](https://rdjpublishers.com/Grammar-Checker/): Check grammar in text
-- [Wordly Game](https://rdjpublishers.com/Wordly-Game/): Word-guessing game
+- [Word Game](https://rdjpublishers.com/Word-Game/): Word-guessing game
 - [Touch to Music](https://rdjpublishers.com/Touch-Music/): Interactive music tool
 - [RDJ Blogs](https://rdjpublishers.com/blogs/): Articles and guides from RDJ Publishers
 
