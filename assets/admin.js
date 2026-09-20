@@ -303,21 +303,397 @@ function showToast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 // ══════════════════════════════════════════════════════════════
-//  ADMIN AUTH
+//  ADMIN AUTH — dynamic injection (no admin HTML in public source)
 // ══════════════════════════════════════════════════════════════
 let isAdmin = false;
+const ADMIN_UNLOCK_KEY = 'rdj_admin_unlocked';
+
+function isUnlocked() {
+  try { return localStorage.getItem(ADMIN_UNLOCK_KEY) === '1'; }
+  catch(e) { return false; }
+}
+function persistUnlock() {
+  try { localStorage.setItem(ADMIN_UNLOCK_KEY, '1'); } catch(e){}
+}
+function clearUnlock() {
+  try { localStorage.removeItem(ADMIN_UNLOCK_KEY); } catch(e){}
+}
+function setAdminDotColor(hex) {
+  // Selector kept neutral — public source has no .admin-* class
+  const dot = document.querySelector('.trigger-dot');
+  if (dot) dot.style.background = hex || '';
+}
+
+// ══════════════════════════════════════════════════════════════
+//  ADMIN STYLES — injected lazily, removed on sign-out
+//  Nothing admin-related is present in the static HTML source.
+//  When the owner triple-clicks the trigger dot for the first
+//  time, the full admin stylesheet is appended to <head>. On
+//  sign-out it is removed again so even the CSS is gone.
+// ══════════════════════════════════════════════════════════════
+const ADMIN_STYLES_ID = 'rdj-admin-styles';
+const ADMIN_STYLES_CSS = `
+/* Modal shell */
+.admin-modal-wrap{position:fixed;inset:0;z-index:500;background:rgba(5,20,18,.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:1rem;}
+.admin-modal-wrap.show{display:flex;}
+.admin-modal{background:var(--surface);border-radius:20px;width:100%;max-width:520px;box-shadow:var(--shadow-lg);overflow:hidden;max-height:92vh;display:flex;flex-direction:column;}
+.admin-modal-head{background:linear-gradient(135deg,var(--ink) 0%,#1d3632 100%);padding:1.4rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.admin-modal-head .modal-title{font-family:var(--serif);font-size:1.15rem;color:#fff;}
+.admin-modal-head small{font-size:.65rem;color:rgba(255,255,255,0.4);font-weight:500;}
+.admin-close-btn{background:rgba(255,255,255,0.08);border:none;color:rgba(255,255,255,0.7);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.admin-close-btn:hover{background:rgba(255,255,255,0.18);color:#fff;}
+.admin-body{padding:1.5rem;overflow-y:auto;}
+/* Mobile responsive */
+@media(max-width:560px){
+  .admin-modal-wrap{padding:.5rem;align-items:flex-end;}
+  .admin-modal{border-radius:18px 18px 14px 14px;max-height:96vh;}
+  .admin-modal-head{padding:1.1rem 1.2rem;}
+  .admin-modal-head .modal-title{font-size:1.05rem;}
+  .admin-body{padding:1.1rem 1.1rem 1.4rem;}
+  .admin-row{grid-template-columns:1fr;gap:.6rem;}
+  .admin-actions{flex-direction:column-reverse;gap:.5rem;}
+  .admin-actions button{width:100%;}
+  .admin-fg.full{grid-column:auto;}
+  .icon-field-wrap .icon-toggle button{font-size:.7rem;padding:.32rem .4rem;}
+}
+/* Login */
+.admin-lock-icon{font-size:2.5rem;text-align:center;margin-bottom:.5rem;}
+.admin-body .modal-subtitle{font-family:var(--serif);font-size:1.1rem;text-align:center;color:var(--ink);margin-bottom:.3rem;}
+.admin-body p.hint{font-size:.78rem;text-align:center;color:var(--muted);margin-bottom:1.3rem;}
+.admin-input{width:100%;padding:.75rem 1rem;border:2px solid var(--border);border-radius:10px;font-family:var(--sans);font-size:.9rem;color:var(--ink);outline:none;transition:border-color .2s;margin-bottom:.8rem;}
+.admin-input:focus{border-color:var(--teal);}
+.admin-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:.85rem;border-radius:10px;font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.admin-btn:hover{background:var(--teal-dark);}
+.admin-err{font-size:.78rem;color:#d93025;text-align:center;margin-top:.5rem;min-height:1em;}
+/* Tabs */
+.admin-tabs{display:flex;gap:.35rem;margin-bottom:1.2rem;overflow-x:auto;flex-wrap:nowrap;padding:2px 2px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;}
+.admin-tabs::-webkit-scrollbar{display:none;}
+.admin-tab{flex-shrink:0;padding:.5rem .85rem;border:2px solid var(--border);border-radius:9px;background:none;font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;white-space:nowrap;scroll-snap-align:start;}
+.admin-tab.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+/* Form */
+.admin-form-grid{display:flex;flex-direction:column;gap:.7rem;}
+.admin-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.admin-fg{display:flex;flex-direction:column;gap:.3rem;}
+.admin-fg label{font-size:.65rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;}
+.admin-fg input,.admin-fg select,.admin-fg textarea{padding:.6rem .8rem;border:1.5px solid var(--border);border-radius:8px;background:var(--bg);font-family:var(--sans);font-size:.83rem;color:var(--ink);outline:none;transition:border-color .2s;}
+.admin-fg input:focus,.admin-fg select:focus,.admin-fg textarea:focus{border-color:var(--teal);background:#fff;}
+.admin-fg textarea{resize:vertical;min-height:70px;}
+.admin-fg.full{grid-column:span 2;}
+.admin-actions{display:flex;gap:.5rem;margin-top:.8rem;}
+.admin-actions button{flex:1;padding:.65rem;border:none;border-radius:9px;font-family:var(--sans);font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.btn-save{background:var(--teal);color:#fff;}
+.btn-save:hover{background:var(--teal-dark);}
+.btn-cancel{background:var(--bg);color:var(--muted);border:1.5px solid var(--border)!important;}
+.btn-cancel:hover{background:var(--border);}
+.btn-export{background:var(--gold)!important;color:#fff!important;}
+.btn-export:hover{background:#a06a15!important;}
+/* Category filter */
+.cat-filter{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1rem;}
+.cat-filter button{padding:.28rem .7rem;border:1.5px solid var(--border);border-radius:100px;font-family:var(--sans);font-size:.7rem;font-weight:600;color:var(--muted);background:var(--bg);cursor:pointer;transition:all .2s;}
+.cat-filter button.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+/* Project list */
+.admin-project-list{display:flex;flex-direction:column;gap:.6rem;max-height:310px;overflow-y:auto;}
+/* Category management */
+.admin-cat-list{display:flex;flex-direction:column;gap:.6rem;max-height:240px;overflow-y:auto;margin-bottom:1rem;}
+.admin-cat-item{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem;}
+.admin-cat-item .ci-icon{font-size:1.4rem;flex-shrink:0;width:32px;text-align:center;}
+.admin-cat-item .ci-icon img{width:1.4rem;height:1.4rem;object-fit:contain;border-radius:5px;}
+.admin-cat-item .ci-info{flex:1;min-width:0;}
+.admin-cat-item .ci-name{font-size:.88rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.admin-cat-item .ci-id{font-size:.65rem;color:var(--muted);}
+/* Edit category form */
+.cat-edit-box{background:#fff;border:1.5px solid var(--teal);border-radius:10px;padding:1rem;animation:editSlide .3s ease both;}
+@keyframes editSlide{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+.cat-edit-box .cat-edit-title{font-size:.82rem;font-weight:700;color:var(--teal);margin-bottom:.7rem;display:flex;align-items:center;gap:.4rem;}
+.cat-edit-box .cat-edit-title span{color:var(--ink);font-weight:700;background:var(--teal-pale);padding:.15rem .5rem;border-radius:6px;font-size:.78rem;}
+.cat-edit-box:empty{display:none;}
+/* Icon field */
+.icon-field-wrap{display:flex;flex-direction:column;gap:.4rem;}
+.icon-toggle{display:flex;gap:.35rem;margin-bottom:.2rem;}
+.icon-toggle button{flex:1;padding:.28rem .5rem;border:1.5px solid var(--border);border-radius:7px;font-family:var(--sans);font-size:.68rem;font-weight:600;color:var(--muted);background:var(--bg);cursor:pointer;transition:all .2s;}
+.icon-toggle button.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+.icon-preview-wrap{display:flex;align-items:center;gap:.6rem;}
+.icon-img-preview{width:40px;height:40px;border-radius:8px;object-fit:cover;border:1.5px solid var(--border);display:none;}
+.icon-img-preview.visible{display:block;}
+.icon-upload-label{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .8rem;background:var(--teal-pale);color:var(--teal);border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;border:1.5px dashed var(--teal);transition:all .2s;}
+.icon-upload-label:hover{background:var(--teal);color:#fff;}
+.icon-gh-token-row{display:flex;flex-direction:column;gap:.3rem;margin-top:.3rem;padding:.7rem;background:var(--gold-pale);border-radius:8px;border:1.5px solid #e8c87a;}
+.icon-gh-token-row label{font-size:.62rem;font-weight:700;color:#7a5c10;text-transform:uppercase;letter-spacing:.07em;}
+.icon-gh-status{font-size:.7rem;color:var(--teal);margin-top:.2rem;min-height:.9em;}
+/* Project item rows */
+.admin-project-item{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.85rem 1rem;display:flex;align-items:center;gap:.75rem;}
+.pi-icon{font-size:1.5rem;flex-shrink:0;}
+.pi-info{flex:1;min-width:0;}
+.pi-name{font-size:.88rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pi-cat{font-size:.65rem;color:var(--muted);margin-top:2px;}
+.pi-btns{display:flex;gap:.4rem;flex-shrink:0;}
+.pi-btn{width:30px;height:30px;border:none;border-radius:7px;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.pi-btn.edit{background:var(--teal-pale);color:var(--teal);}
+.pi-btn.edit:hover{background:var(--teal);color:#fff;}
+.pi-btn.del{background:#fee;color:#c0392b;}
+.pi-btn.del:hover{background:#c0392b;color:#fff;}
+.admin-empty{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;}
+/* Export box */
+.export-box{background:var(--gold-pale);border:1.5px solid #e8c87a;border-radius:12px;padding:1.1rem;margin-bottom:1rem;}
+.export-box p{font-size:.78rem;color:#7a5c10;line-height:1.6;}
+.export-box strong{color:#5a420a;display:block;margin-bottom:.3rem;font-size:.82rem;}
+.export-count{font-size:.78rem;color:var(--muted);text-align:center;margin-top:.8rem;}
+/* Admin mode strip (Sign Out bar) */
+.admin-strip{background:linear-gradient(90deg,var(--ink),#1d3632);padding:.45rem 1.3rem;display:flex;align-items:center;justify-content:space-between;display:none;}
+.admin-strip.visible{display:flex;}
+.admin-strip span{font-size:.7rem;color:rgba(255,255,255,0.6);}
+.admin-strip button{background:rgba(255,255,255,0.1);border:none;color:rgba(255,255,255,0.7);padding:.3rem .8rem;border-radius:6px;font-family:var(--sans);font-size:.7rem;font-weight:600;cursor:pointer;transition:all .2s;}
+.admin-strip button:hover{background:rgba(255,255,255,0.2);color:#fff;}
+/* Trigger dot — green when admin mode is on */
+body.admin-mode .trigger-dot{box-shadow:0 0 0 2px #22c55e55;background:#22c55e;}
+`;
+function injectAdminStyles() {
+  if (document.getElementById(ADMIN_STYLES_ID)) return;
+  const style = document.createElement('style');
+  style.id = ADMIN_STYLES_ID;
+  style.textContent = ADMIN_STYLES_CSS;
+  document.head.appendChild(style);
+}
+function removeAdminStyles() {
+  const el = document.getElementById(ADMIN_STYLES_ID);
+  if (el) el.remove();
+}
+
+// ── Login modal (built on demand when triple-click is detected) ──
+function buildLoginModal() {
+  if (document.getElementById('adminLoginWrap')) return;
+  // First time we touch admin — inject the full admin stylesheet.
+  // (Removed on sign-out via removeAdminStyles().)
+  injectAdminStyles();
+  const wrap = document.createElement('div');
+  wrap.className = 'admin-modal-wrap';
+  wrap.id = 'adminLoginWrap';
+  wrap.innerHTML = `
+    <div class="admin-modal">
+      <div class="admin-modal-head">
+        <div><div class="modal-title" role="heading" aria-level="2">Admin Access</div><small>RDJ Publishers CMS</small></div>
+        <button class="admin-close-btn" onclick="closeAdminLogin()">✕</button>
+      </div>
+      <div class="admin-body">
+        <div class="admin-lock-icon">🔐</div>
+        <div class="modal-subtitle" role="heading" aria-level="3">Owner Sign In</div>
+        <p class="hint">This panel is restricted to the site owner only.</p>
+        <input class="admin-input" type="password" id="adminPass" placeholder="Enter your password" onkeydown="if(event.key==='Enter')doLogin()">
+        <button class="admin-btn" onclick="doLogin()">Sign In</button>
+        <div class="admin-err" id="adminErr"></div>
+      </div>
+    </div>`;
+  document.body.appendChild(wrap);
+}
+function removeLoginModal() {
+  document.getElementById('adminLoginWrap')?.remove();
+}
+
+// ── Admin panel + strip (built only after correct password) ──
+function buildAdminPanel() {
+  if (document.getElementById('adminPanelWrap')) return;
+  // Ensure admin styles are loaded before we paint anything.
+  injectAdminStyles();
+  const wrap = document.createElement('div');
+  wrap.className = 'admin-modal-wrap';
+  wrap.id = 'adminPanelWrap';
+  wrap.innerHTML = `
+    <div class="admin-modal" style="max-width:560px;">
+      <div class="admin-modal-head">
+        <div><div class="modal-title" role="heading" aria-level="2">Content Manager</div><small>Add · Edit · Delete · Export</small></div>
+        <button class="admin-close-btn" onclick="closeAdminPanel()">✕</button>
+      </div>
+      <div class="admin-body">
+        <!-- TABS -->
+        <div class="admin-tabs">
+          <button class="admin-tab" onclick="switchTab('list')">📋 Projects</button>
+          <button class="admin-tab" onclick="switchTab('add')">➕ Add / Edit</button>
+          <button class="admin-tab" onclick="switchTab('cats')">📁 Categories</button>
+          <button class="admin-tab" onclick="switchTab('hero')">🏠 Hero Text</button>
+          <button class="admin-tab" onclick="switchTab('export')">⬇️ Export</button>
+        </div>
+        <!-- ── LIST TAB ── -->
+        <div id="tab-list" style="display: block;">
+          <div class="cat-filter" id="admin-cat-filter"><button onclick="filterAdminList('all',this)">All</button></div>
+          <div class="admin-project-list" id="adminProjectList"></div>
+          <div class="admin-actions">
+            <button class="btn-save" onclick="prepareNewProject()">➕ Add New Project</button>
+          </div>
+        </div>
+        <!-- ── ADD / EDIT TAB ── -->
+        <div id="tab-add" style="display: none;">
+          <div class="admin-form-grid">
+            <div class="admin-row">
+              <div class="admin-fg">
+                <label>Icon</label>
+                <div class="icon-field-wrap">
+                  <div class="icon-toggle">
+                    <button id="icon-mode-emoji" class="active" onclick="setIconMode('emoji')">Emoji</button>
+                    <button id="icon-mode-image" onclick="setIconMode('image')">Image</button>
+                  </div>
+                  <div id="icon-emoji-section">
+                    <input type="text" id="f-icon" placeholder="📅" maxlength="8">
+                  </div>
+                  <div id="icon-image-section" style="display: none;">
+                    <div class="icon-preview-wrap">
+                      <img id="icon-img-preview" class="icon-img-preview" src="" alt="preview">
+                      <label class="icon-upload-label">
+                        📷 Choose Image
+                        <input type="file" id="f-icon-file" accept="image/*" style="display:none;" onchange="onIconFileChange(event)">
+                      </label>
+                    </div>
+                    <div class="icon-gh-token-row" id="icon-gh-token-row" style="display: none;">
+                      <label>GitHub Token (needed to upload image)</label>
+                      <input class="admin-input" type="password" id="f-icon-gh-token" placeholder="Paste GitHub token" style="margin-bottom:0;font-size:.8rem;padding:.5rem .7rem;">
+                      <div class="icon-gh-status" id="icon-gh-status" style="color: var(--teal);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="admin-fg">
+                <label>Category</label>
+                <select id="f-cat"><option value="tools">🔧 Tools</option><option value="games">🎮 Games</option><option value="fun">🎉 Fun</option><option value="productivity">📈 Productivity</option></select>
+              </div>
+            </div>
+            <div class="admin-fg full">
+              <label>Project Title</label>
+              <input type="text" id="f-title" placeholder="e.g. Attendance Calculator">
+            </div>
+            <div class="admin-fg full">
+              <label>Description</label>
+              <textarea id="f-desc" placeholder="Brief description of what this project does..."></textarea>
+            </div>
+            <div class="admin-fg full">
+              <label>Full Details (shown behind "Read more")</label>
+              <textarea id="f-details" placeholder="What it is, who it's for, and how it works — 2-4 sentences. This is the longer write-up shown when a visitor clicks Read more on the card." style="min-height:110px;"></textarea>
+            </div>
+            <div class="admin-row">
+              <div class="admin-fg">
+                <label>Status</label>
+                <select id="f-status">
+                  <option value="live">● Live</option>
+                  <option value="soon">⏳ Coming Soon</option>
+                </select>
+              </div>
+              <div class="admin-fg">
+                <label>URL (if live)</label>
+                <input type="url" id="f-url" placeholder="https://...">
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="f-edit-id" value="">
+          <div class="admin-actions">
+            <button class="btn-cancel" onclick="cancelEdit()">← Back</button>
+            <button class="btn-save" onclick="saveProject()">💾 Save Project</button>
+          </div>
+        </div>
+        <!-- ── CATEGORIES TAB ── -->
+        <div id="tab-cats" style="display: none;">
+          <div class="admin-cat-list" id="adminCatList"></div>
+          <div id="cat-edit-wrap" style="margin-bottom:1rem;"></div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem;border:1.5px solid var(--border);">
+            <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.7rem;">➕ Add New Category</div>
+            <div class="admin-form-grid">
+              <div class="admin-row">
+                <div class="admin-fg">
+                  <label>Category ID</label>
+                  <input type="text" id="nc-id" placeholder="e.g. design" maxlength="20">
+                </div>
+                <div class="admin-fg">
+                  <label>Display Name</label>
+                  <input type="text" id="nc-name" placeholder="e.g. Design">
+                </div>
+              </div>
+              <div class="admin-row">
+                <div class="admin-fg">
+                  <label>Icon / Emoji</label>
+                  <input type="text" id="nc-icon" placeholder="🎨" maxlength="8">
+                </div>
+                <div class="admin-fg">
+                  <label>Description</label>
+                  <input type="text" id="nc-desc" placeholder="Short description">
+                </div>
+              </div>
+            </div>
+            <div class="admin-actions" style="margin-top:.7rem;">
+              <button class="btn-save" onclick="addCategory()">➕ Add Category</button>
+            </div>
+          </div>
+        </div>
+        <!-- ── HERO TEXT TAB ── -->
+        <div id="tab-hero" style="display: none;">
+          <div class="admin-form-grid">
+            <div class="admin-fg full">
+              <label>Hero Headline</label>
+              <input type="text" id="h-headline" placeholder="Free Tools, One Tap Away!">
+            </div>
+            <div class="admin-fg full">
+              <label>Hero Subtext</label>
+              <input type="text" id="h-subtext" placeholder="Seamless, Fast &amp; Reliable">
+            </div>
+            <div class="admin-fg full">
+              <label>About — Mission Text</label>
+              <textarea id="h-about" style="min-height:80px;" placeholder="We build free, simple..."></textarea>
+            </div>
+          </div>
+          <div class="admin-actions">
+            <button class="btn-save" onclick="saveHero()">💾 Save Changes</button>
+          </div>
+        </div>
+        <!-- ── EXPORT TAB ── -->
+        <div id="tab-export" style="display: none;">
+          <div class="export-box">
+            <strong>📦 How Export Works</strong>
+            <p>This downloads a complete <code>.html</code> file with all your current projects and hero text <strong>baked directly into the code</strong>. Once you push it to GitHub, everyone sees your changes — no localStorage needed.</p>
+            <p style="margin-top:.5rem;">✅ <strong>Workflow:</strong> Edit in admin → Export → Replace file → Push to GitHub → Done!</p>
+          </div>
+          <div id="export-count" class="export-count">Ready to export: 0 projects</div>
+          <div class="admin-actions" style="margin-top:.8rem;">
+            <button class="btn-export" onclick="exportHTML()" style="flex:1;padding:.75rem;border:none;border-radius:9px;font-family:var(--sans);font-size:.88rem;font-weight:700;cursor:pointer;">⬇️ Download Updated HTML File</button>
+          </div>
+          <div style="margin-top:1.2rem;background:linear-gradient(135deg,#0f1e1c,#1d3632);border-radius:12px;padding:1.2rem;">
+            <div style="font-size:.82rem;font-weight:700;color:#fff;margin-bottom:.3rem;">🚀 Publish Directly to GitHub</div>
+            <div style="font-size:.72rem;color:rgba(255,255,255,0.5);margin-bottom:1rem;line-height:1.5;">Skip the download. Enter your GitHub token and this will push the updated file live instantly.</div>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <input class="admin-input" type="password" id="gh-token-input" placeholder="Paste your GitHub token here" autocomplete="off" style="margin-bottom:0;background:#1a2e2b;border-color:rgba(255,255,255,0.15);color:#fff;">
+              <button onclick="publishToGitHub()" id="gh-publish-btn" style="width:100%;padding:.75rem;background:rgb(22,163,74);color:#fff;border:none;border-radius:9px;font-family:var(--sans);font-size:.88rem;font-weight:700;cursor:pointer;">🚀 Publish to GitHub</button>
+            </div>
+            <div id="gh-status" style="font-size:.75rem;text-align:center;margin-top:.6rem;min-height:1em;color:rgba(255,255,255,0.6);"></div>
+          </div>
+        </div>
+      </div><!-- /admin-body -->
+    </div>`;
+  document.body.appendChild(wrap);
+
+  // Strip with Sign Out button
+  const strip = document.createElement('div');
+  strip.className = 'admin-strip';
+  strip.id = 'adminStrip';
+  strip.innerHTML = `<span>⚙️ Admin Mode Active</span><button onclick="doLogout()">Sign Out</button>`;
+  document.body.appendChild(strip);
+}
+function removeAdminPanel() {
+  document.getElementById('adminPanelWrap')?.remove();
+  document.getElementById('adminStrip')?.remove();
+}
+
+// ── Triple-click trigger (wires up the neutral .trigger-dot element) ──
 let dotClickCount = 0, dotClickTimer = null;
 function openAdminEntry() {
   dotClickCount++;
   clearTimeout(dotClickTimer);
   if (dotClickCount >= 3) {
     dotClickCount = 0;
-    isAdmin ? openAdminPanel() : openAdminLogin();
+    if (isAdmin) openAdminPanel();
+    else openAdminLogin();
   } else {
     dotClickTimer = setTimeout(() => { dotClickCount = 0; }, 600);
   }
 }
+
+// ── Login flow ──
 function openAdminLogin() {
+  buildLoginModal();
   document.getElementById('adminLoginWrap')?.classList?.add('show');
   const adminPass = document.getElementById('adminPass');
   if (adminPass) adminPass.value = '';
@@ -333,11 +709,13 @@ async function doLogin() {
   const hash = await checkPassword(pw);
   if (hash === ADMIN_HASH) {
     isAdmin = true;
+    persistUnlock();
     closeAdminLogin();
+    removeLoginModal();        // dispose login modal — no longer needed
     document.body.classList.add('admin-mode');
+    buildAdminPanel();         // dynamic injection of full admin panel + strip
     document.getElementById('adminStrip')?.classList?.add('visible');
-    const adminDot = document.getElementById('adminDot');
-    if (adminDot) adminDot.style.background = '#22c55e';
+    setAdminDotColor('#22c55e');
     showToast('✅ Admin mode enabled');
     openAdminPanel();
   } else {
@@ -349,18 +727,25 @@ async function doLogin() {
 }
 function doLogout() {
   isAdmin = false;
+  clearUnlock();
   document.body.classList.remove('admin-mode');
-  document.getElementById('adminStrip')?.classList?.remove('visible');
-  const adminDot = document.getElementById('adminDot');
-  if (adminDot) adminDot.style.background = '';
-  closeAdminPanel();
+  removeAdminPanel();          // fully strip admin elements from the DOM
+  removeLoginModal();          // also wipe any leftover login modal
+  removeAdminStyles();         // purge the admin stylesheet too
+  setAdminDotColor('');
   showToast('👋 Signed out of admin mode');
 }
+
 // ══════════════════════════════════════════════════════════════
 //  ADMIN PANEL — tabs, list, filter, form
 // ══════════════════════════════════════════════════════════════
 let currentFilter = 'all';
 function openAdminPanel() {
+  // Build first if state was restored from localStorage (after refresh)
+  buildAdminPanel();
+  document.body.classList.add('admin-mode');
+  document.getElementById('adminStrip')?.classList?.add('visible');
+  setAdminDotColor('#22c55e');
   document.getElementById('adminPanelWrap')?.classList?.add('show');
   switchTab('list');
   loadMeta();
@@ -775,10 +1160,14 @@ function renderExportCount() {
 }
 function buildCleanHTML() {
   // ── Step 1: Snapshot then clean the DOM directly ──
+  // Admin elements are now dynamically added, so we look them up by id /
+  // class — they may not exist (logged-out export) or may exist with full
+  // content (logged-in export). Either way the exported file must end up
+  // admin-clean.
   const panelWrap   = document.getElementById('adminPanelWrap');
   const loginWrap   = document.getElementById('adminLoginWrap');
   const adminStrip  = document.getElementById('adminStrip');
-  const adminDot    = document.getElementById('adminDot');
+  const adminDot    = document.querySelector('.trigger-dot');
   const publishBtn  = document.getElementById('gh-publish-btn');
   const ghStatus    = document.getElementById('gh-status');
   const tabExport   = document.getElementById('tab-export');
@@ -787,7 +1176,7 @@ function buildCleanHTML() {
   const tabHero     = document.getElementById('tab-hero');
   const tabList     = document.getElementById('tab-list');
 
-  // Snapshot
+  // Snapshot admin-state so we can restore after capture.
   const panelWasOpen  = panelWrap  && panelWrap.classList.contains('show');
   const loginWasOpen  = loginWrap  && loginWrap.classList.contains('show');
   const stripVisible  = adminStrip && adminStrip.classList.contains('visible');
@@ -797,7 +1186,6 @@ function buildCleanHTML() {
   const btnDisabled   = publishBtn ? publishBtn.disabled : false;
   const statusText    = ghStatus   ? ghStatus.textContent : '';
   const statusColor   = ghStatus   ? ghStatus.style.color : '';
-  // ── FIX: snapshot tab display states so we can restore them after capture ──
   const tabExportDisp = tabExport ? tabExport.style.display : '';
   const tabAddDisp    = tabAdd    ? tabAdd.style.display    : '';
   const tabCatsDisp   = tabCats   ? tabCats.style.display   : '';
@@ -805,20 +1193,31 @@ function buildCleanHTML() {
   const tabListDisp   = tabList   ? tabList.style.display   : '';
   const activeAdminTabs = Array.from(document.querySelectorAll('.admin-tab.active'));
 
-  // Apply clean state directly to DOM before outerHTML capture
-  if (panelWrap)  panelWrap.classList.remove('show');
-  if (loginWrap)  loginWrap.classList.remove('show');
-  if (adminStrip) adminStrip.classList.remove('visible');
+  // Snapshot parent + nextSibling of admin elements so we can detach and
+  // re-insert them at exactly the same spot after the capture.
+  const panelParent   = panelWrap  && panelWrap.parentNode;
+  const panelNext     = panelWrap  && panelWrap.nextSibling;
+  const loginParent   = loginWrap  && loginWrap.parentNode;
+  const loginNext     = loginWrap  && loginWrap.nextSibling;
+  const stripParent   = adminStrip && adminStrip.parentNode;
+  const stripNext     = adminStrip && adminStrip.nextSibling;
+  const dotParent     = adminDot   && adminDot.parentNode;
+  const dotNext       = adminDot   && adminDot.nextSibling;
+
+  // Detach admin elements so they are NOT captured by outerHTML. The
+  // exported public HTML will be completely admin-clean.
+  if (panelWrap)  panelWrap.remove();
+  if (loginWrap)  loginWrap.remove();
+  if (adminStrip) adminStrip.remove();
+  // For the trigger dot: temporarily neutralise any admin styling on it
+  // but keep the element itself in source (it's the owner-only trigger).
+  // If the dot happens to live inside an element we also want to keep,
+  // we don't remove it — only strip its inline admin background.
   if (adminDot)   adminDot.style.background = '';
   document.body.classList.remove('admin-mode');
   if (publishBtn) { publishBtn.disabled = false; publishBtn.textContent = '🚀 Publish to GitHub'; }
-  if (ghStatus)   { ghStatus.textContent = ''; }
-  if (tabExport)  tabExport.style.display = 'none';
-  if (tabAdd)     tabAdd.style.display    = 'none';
-  if (tabCats)    tabCats.style.display   = 'none';
-  if (tabHero)    tabHero.style.display   = 'none';
-  if (tabList)    tabList.style.display   = 'block';
-  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  // gh-publish-btn / gh-status live inside the (now-detached) tab-export,
+  // so we don't need to touch them — they're gone from the captured DOM.
 
   // ── Step 2: Capture clean HTML and update embedded data ──
   const projects   = getProjects();
@@ -833,15 +1232,26 @@ function buildCleanHTML() {
     '$1\n' + newData + '\n$2'
   );
 
-  // ── Step 3: Restore DOM so user's session is unaffected ──
-  if (panelWasOpen  && panelWrap)  panelWrap.classList.add('show');
-  if (loginWasOpen  && loginWrap)  loginWrap.classList.add('show');
-  if (stripVisible  && adminStrip) adminStrip.classList.add('visible');
-  if (adminDot)      adminDot.style.background = dotBg;
+  // ── Step 3: Restore DOM so the owner's session is unaffected ──
+  if (panelParent) {
+    if (panelNext) panelParent.insertBefore(panelWrap, panelNext);
+    else panelParent.appendChild(panelWrap);
+    if (panelWasOpen) panelWrap.classList.add('show');
+  }
+  if (loginParent) {
+    if (loginNext) loginParent.insertBefore(loginWrap, loginNext);
+    else loginParent.appendChild(loginWrap);
+    if (loginWasOpen) loginWrap.classList.add('show');
+  }
+  if (stripParent) {
+    if (stripNext) stripParent.insertBefore(adminStrip, stripNext);
+    else stripParent.appendChild(adminStrip);
+    if (stripVisible) adminStrip.classList.add('visible');
+  }
+  if (adminDot && dotBg) adminDot.style.background = dotBg;
   if (bodyAdminMode) document.body.classList.add('admin-mode');
   if (publishBtn)  { publishBtn.disabled = btnDisabled; publishBtn.textContent = btnLabel; }
   if (ghStatus)    { ghStatus.textContent = statusText; ghStatus.style.color = statusColor; }
-  // ── FIX: restore tab display states (these contain gh-status and gh-publish-btn) ──
   if (tabExport) tabExport.style.display = tabExportDisp;
   if (tabAdd)    tabAdd.style.display    = tabAddDisp;
   if (tabCats)   tabCats.style.display   = tabCatsDisp;
@@ -849,6 +1259,10 @@ function buildCleanHTML() {
   if (tabList)   tabList.style.display   = tabListDisp;
   activeAdminTabs.forEach(b => b.classList.add('active'));
 
+  // tab-* tabs live inside panelWrap, so they were also detached above.
+  // The restore above re-inserted panelWrap with all its children intact,
+  // so the tab display snapshot/restore is actually only relevant if the
+  // user re-opened the panel during the capture window — harmless either way.
   return html;
 }
 
@@ -1189,4 +1603,24 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAll();
   renderCatSelect();
   routeFromHash();
+
+  // Wire up the triple-click trigger on the (otherwise empty) trigger dot.
+  // The dot itself is just a tiny gold circle in the topbar — no admin
+  // text, id, or onclick attribute is present in the public HTML.
+  const adminDot = document.querySelector('.trigger-dot');
+  if (adminDot) {
+    adminDot.addEventListener('click', openAdminEntry);
+  }
+
+  // Restore unlock state: if the owner was already signed in, keep admin
+  // mode accessible across refresh. The panel is NOT auto-opened — the
+  // owner still triple-clicks the dot to open it (no password needed).
+  if (isUnlocked()) {
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    setAdminDotColor('#22c55e');
+    // Pre-build admin panel so it's instantly available, but keep it closed.
+    buildAdminPanel();
+    document.getElementById('adminStrip')?.classList?.add('visible');
+  }
 });
