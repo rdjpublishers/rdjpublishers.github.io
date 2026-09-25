@@ -394,13 +394,28 @@ const ADMIN_STYLES_CSS = `
 /* Project list */
 .admin-project-list{display:flex;flex-direction:column;gap:.6rem;max-height:310px;overflow-y:auto;}
 /* Category management */
-.admin-cat-list{display:flex;flex-direction:column;gap:.6rem;max-height:240px;overflow-y:auto;margin-bottom:1rem;}
-.admin-cat-item{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.75rem 1rem;display:flex;align-items:center;gap:.75rem;}
+.admin-cat-list{display:flex;flex-direction:column;gap:.6rem;max-height:340px;overflow-y:auto;margin-bottom:1rem;}
+.admin-cat-item{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.65rem .8rem;display:flex;align-items:center;gap:.55rem;transition:all .18s;cursor:default;}
+.admin-cat-item:hover{border-color:var(--teal);background:#fff;}
+.admin-cat-item.dragging{opacity:.45;border-color:var(--teal);box-shadow:0 6px 20px rgba(11,110,97,0.22);transform:scale(0.99);}
+.admin-cat-item.drag-over-top{border-top:3px solid var(--teal)!important;}
+.admin-cat-item.drag-over-bottom{border-bottom:3px solid var(--teal)!important;}
 .admin-cat-item .ci-icon{font-size:1.4rem;flex-shrink:0;width:32px;text-align:center;}
 .admin-cat-item .ci-icon img{width:1.4rem;height:1.4rem;object-fit:contain;border-radius:5px;}
 .admin-cat-item .ci-info{flex:1;min-width:0;}
 .admin-cat-item .ci-name{font-size:.88rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .admin-cat-item .ci-id{font-size:.65rem;color:var(--muted);}
+/* Reorder controls */
+.cat-reorder-hint{font-size:.72rem;color:var(--teal);margin-bottom:.7rem;line-height:1.5;padding:.6rem .8rem;background:var(--teal-pale);border-radius:8px;border-left:3px solid var(--teal);display:flex;align-items:center;gap:.4rem;}
+.cat-pos{font-size:.65rem;font-weight:700;color:var(--teal);background:var(--teal-pale);padding:.2rem .45rem;border-radius:5px;flex-shrink:0;min-width:24px;text-align:center;font-variant-numeric:tabular-nums;}
+.cat-reorder-controls{display:flex;flex-direction:column;gap:3px;flex-shrink:0;}
+.cat-reorder-controls button{width:24px;height:22px;border:1.5px solid var(--border);border-radius:5px;background:var(--surface);color:var(--muted);cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;padding:0;font-family:inherit;}
+.cat-reorder-controls button:hover:not(:disabled){background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-1px);}
+.cat-reorder-controls button:active:not(:disabled){transform:translateY(0);}
+.cat-reorder-controls button:disabled{opacity:.3;cursor:not-allowed;}
+.drag-handle{cursor:grab;color:var(--muted);font-size:1.05rem;padding:0 .15rem;flex-shrink:0;user-select:none;transition:color .15s;line-height:1;}
+.admin-cat-item:hover .drag-handle{color:var(--teal);}
+.drag-handle:active{cursor:grabbing;}
 /* Edit category form */
 .cat-edit-box{background:#fff;border:1.5px solid var(--teal);border-radius:10px;padding:1rem;animation:editSlide .3s ease both;}
 @keyframes editSlide{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
@@ -589,6 +604,10 @@ function buildAdminPanel() {
         </div>
         <!-- ── CATEGORIES TAB ── -->
         <div id="tab-cats" style="display: none;">
+          <div class="cat-reorder-hint">
+            <span style="font-size:1rem;">↕️</span>
+            <span>Drag the <strong>⋮⋮</strong> handle, or use the <strong>▲ ▼</strong> buttons, to reorder how categories appear on the home page and sidebar.</span>
+          </div>
           <div class="admin-cat-list" id="adminCatList"></div>
           <div id="cat-edit-wrap" style="margin-bottom:1rem;"></div>
           <div style="background:var(--bg);border-radius:10px;padding:1rem;border:1.5px solid var(--border);">
@@ -846,15 +865,23 @@ function renderAdminCats() {
     el.innerHTML = '<div class="admin-empty">No categories yet.</div>';
     return;
   }
-  el.innerHTML = cats.map(cat => {
+  el.innerHTML = cats.map((cat, idx) => {
     const iconHtml = cat.icon && cat.icon.startsWith('http')
       ? `<img src="${cat.icon}" alt="${cat.name}">`
       : (cat.icon || '📁');
-    return `<div class="admin-cat-item">
+    const isFirst = idx === 0;
+    const isLast  = idx === cats.length - 1;
+    return `<div class="admin-cat-item" draggable="true" data-cat-id="${cat.id}">
+      <span class="drag-handle" title="Drag to reorder">⋮⋮</span>
+      <span class="cat-pos" title="Position">${idx + 1}</span>
       <div class="ci-icon">${iconHtml}</div>
       <div class="ci-info">
         <div class="ci-name">${cat.name}</div>
         <div class="ci-id">ID: ${cat.id}</div>
+      </div>
+      <div class="cat-reorder-controls" title="Move up/down">
+        <button ${isFirst ? 'disabled' : ''} title="Move up" onclick="moveCategoryUp('${cat.id}')">▲</button>
+        <button ${isLast ? 'disabled' : ''} title="Move down" onclick="moveCategoryDown('${cat.id}')">▼</button>
       </div>
       <div class="pi-btns">
         <button class="pi-btn edit" title="Edit" onclick="editCategory('${cat.id}')">✏️</button>
@@ -862,9 +889,94 @@ function renderAdminCats() {
       </div>
     </div>`;
   }).join('');
+  // Attach drag-and-drop handlers (delegated) — works on freshly painted rows
+  initCatDragDrop();
   // If we're currently editing a cat, re-render its edit form (in case list refreshed)
   if (editingCatId) renderCatEditForm();
 }
+// ── Reorder: move category up or down by one position ──
+function moveCategoryUp(id) {
+  const cats = getCategories();
+  const idx = cats.findIndex(c => c.id === id);
+  if (idx <= 0) return;
+  [cats[idx - 1], cats[idx]] = [cats[idx], cats[idx - 1]];
+  saveCategories(cats);
+  renderAll();
+  renderAdminCats();
+  showToast('↥ ' + cats[idx].name + ' moved up');
+}
+function moveCategoryDown(id) {
+  const cats = getCategories();
+  const idx = cats.findIndex(c => c.id === id);
+  if (idx === -1 || idx >= cats.length - 1) return;
+  [cats[idx + 1], cats[idx]] = [cats[idx], cats[idx + 1]];
+  saveCategories(cats);
+  renderAll();
+  renderAdminCats();
+  showToast('↧ ' + cats[idx].name + ' moved down');
+}
+// ── Reorder: drag-and-drop (HTML5 native, no library) ──
+let _catDragSrcId = null;
+let _catDragTargetId = null;
+function initCatDragDrop() {
+  const list = document.getElementById('adminCatList');
+  if (!list || list.dataset.dndWired === '1') return;
+  list.dataset.dndWired = '1';
+  list.addEventListener('dragstart', e => {
+    const item = e.target.closest('.admin-cat-item');
+    if (!item) return;
+    _catDragSrcId = item.dataset.catId;
+    item.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    try { e.dataTransfer.setData('text/plain', _catDragSrcId); } catch(_) {}
+  });
+  list.addEventListener('dragend', e => {
+    const item = e.target.closest('.admin-cat-item');
+    if (item) item.classList.remove('dragging');
+    list.querySelectorAll('.admin-cat-item').forEach(el => {
+      el.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+    _catDragSrcId = null;
+    _catDragTargetId = null;
+  });
+  list.addEventListener('dragover', e => {
+    const item = e.target.closest('.admin-cat-item');
+    if (!item || !_catDragSrcId || item.dataset.catId === _catDragSrcId) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    // Decide insert position based on cursor Y relative to item midpoint
+    const r = item.getBoundingClientRect();
+    const isAbove = (e.clientY - r.top) < r.height / 2;
+    list.querySelectorAll('.admin-cat-item').forEach(el => {
+      el.classList.remove('drag-over-top', 'drag-over-bottom');
+    });
+    item.classList.add(isAbove ? 'drag-over-top' : 'drag-over-bottom');
+    _catDragTargetId = item.dataset.catId;
+    _catDropAbove = isAbove;
+  });
+  list.addEventListener('dragleave', e => {
+    const item = e.target.closest('.admin-cat-item');
+    if (item) item.classList.remove('drag-over-top', 'drag-over-bottom');
+  });
+  list.addEventListener('drop', e => {
+    e.preventDefault();
+    if (!_catDragSrcId || !_catDragTargetId || _catDragSrcId === _catDragTargetId) return;
+    const cats = getCategories();
+    const srcIdx = cats.findIndex(c => c.id === _catDragSrcId);
+    const tgtIdx = cats.findIndex(c => c.id === _catDragTargetId);
+    if (srcIdx === -1 || tgtIdx === -1) return;
+    const [moved] = cats.splice(srcIdx, 1);
+    // Recompute target index AFTER removal (src may have been before tgt)
+    const newTgtIdx = cats.findIndex(c => c.id === _catDragTargetId);
+    const insertAt = (_catDropAbove ? newTgtIdx : newTgtIdx + 1);
+    cats.splice(insertAt, 0, moved);
+    saveCategories(cats);
+    renderAll();
+    renderAdminCats();
+    showToast('↕️ Reordered');
+  });
+}
+let _catDropAbove = true;
 let editingCatId = null;
 function editCategory(id) {
   editingCatId = id;
