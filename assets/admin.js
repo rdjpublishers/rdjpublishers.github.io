@@ -484,95 +484,106 @@ body.admin-mode .trigger-dot{box-shadow:0 0 0 2px #22c55e55;background:#22c55e;}
    MOBILE RESPONSIVE — placed at the end so it wins specificity
    ══════════════════════════════════════════════════════════════ */
 @media(max-width:599px){
-  /* Modal becomes full-width bottom sheet */
+  /* Modal becomes full-width bottom sheet — compact so it fits the screen */
   .admin-modal-wrap{padding:0;align-items:flex-end;}
-  .admin-modal{border-radius:20px 20px 0 0;max-width:100%;max-height:94vh;animation:modalPopUp .3s cubic-bezier(.4,0,.2,1) both;}
+  .admin-modal{border-radius:18px 18px 0 0;max-width:100%;max-height:96vh;animation:modalPopUp .28s cubic-bezier(.4,0,.2,1) both;}
   @keyframes modalPopUp{from{transform:translateY(100%);}to{transform:none;}}
-  .admin-modal::before{content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);width:36px;height:4px;background:var(--border);border-radius:100px;}
+  .admin-modal::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--border);border-radius:100px;}
   /* Head bar */
-  .admin-modal-head{padding:.95rem 1rem .85rem;}
-  .admin-modal-head .modal-title{font-size:1.05rem;}
-  .admin-close-btn{width:38px;height:38px;font-size:1rem;}
-  .admin-body{padding:1rem 1rem 1.8rem;}
+  .admin-modal-head{padding:.7rem .85rem;}
+  .admin-modal-head .modal-title{font-size:.95rem;}
+  .admin-modal-head small{font-size:.58rem;}
+  .admin-close-btn{width:32px;height:32px;font-size:.9rem;}
+  .admin-body{padding:.7rem .85rem 1.1rem;}
   /* Forms */
-  .admin-row{grid-template-columns:1fr;gap:.65rem;}
+  .admin-row{grid-template-columns:1fr;gap:.55rem;}
   .admin-fg.full{grid-column:auto;}
-  .admin-fg label{font-size:.66rem;}
-  .admin-fg input,.admin-fg select,.admin-fg textarea{padding:.72rem .9rem;font-size:.92rem;min-height:46px;}
-  .admin-fg textarea{min-height:90px;}
-  .admin-input{padding:.82rem .95rem;font-size:.92rem;min-height:48px;margin-bottom:.65rem;}
-  .admin-form-grid{gap:.75rem;}
-  /* Buttons — 48px touch targets */
-  .admin-btn{min-height:48px;font-size:.92rem;padding:.9rem;}
-  .admin-actions{flex-direction:column-reverse;gap:.55rem;margin-top:.95rem;}
-  .admin-actions button{width:100%;min-height:46px;padding:.8rem;font-size:.88rem;}
-  .btn-cancel,.btn-save,.btn-export{padding:.82rem;font-size:.88rem;}
-  /* Tabs — horizontally scrolling segmented control on mobile */
-  .admin-tabs{gap:.35rem;padding:5px;margin-bottom:1.1rem;border-radius:12px;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;}
+  .admin-fg label{font-size:.62rem;}
+  .admin-fg input,.admin-fg select,.admin-fg textarea{padding:.62rem .8rem;font-size:.88rem;min-height:44px;}
+  .admin-fg textarea{min-height:84px;}
+  .admin-input{padding:.72rem .85rem;font-size:.88rem;min-height:46px;margin-bottom:.55rem;}
+  .admin-form-grid{gap:.6rem;}
+  /* Buttons — 44px touch targets */
+  .admin-btn{min-height:44px;font-size:.88rem;padding:.8rem;}
+  .admin-actions{flex-direction:column-reverse;gap:.5rem;margin-top:.75rem;}
+  .admin-actions button{width:100%;min-height:44px;padding:.7rem;font-size:.84rem;}
+  .btn-cancel,.btn-save,.btn-export{padding:.72rem;font-size:.84rem;}
+  /* Tabs — compact horizontal scroll */
+  .admin-tabs{gap:.3rem;padding:4px;margin-bottom:.8rem;border-radius:10px;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;}
   .admin-tabs::-webkit-scrollbar{display:none;}
-  .admin-tab{flex:0 0 auto;padding:.6rem .9rem;font-size:.76rem;min-height:42px;border-radius:9px;white-space:nowrap;scroll-snap-align:start;}
-  /* ── Project items — clean stacked row ── */
-  .admin-project-list{max-height:none;gap:.65rem;}
-  .admin-project-item{padding:.85rem .9rem;gap:.75rem;}
-  .admin-project-item .pi-icon{width:44px;height:44px;font-size:1.35rem;}
-  .pi-name{font-size:.9rem;}
-  .pi-cat{font-size:.7rem;gap:.4rem;}
-  .pi-cat .pi-status{font-size:.6rem;padding:.15rem .45rem;}
-  .pi-btns{gap:.45rem;}
-  .pi-btn{width:40px;height:40px;font-size:.9rem;border-radius:10px;}
-  /* ── Category items — clean 2-row mobile layout (CSS Grid) ── */
-  .admin-cat-list{max-height:none;gap:.65rem;}
-  .admin-cat-item{padding:.85rem .9rem;gap:.5rem;align-items:center;display:grid;grid-template-columns:auto auto auto 1fr;grid-template-areas:"handle pos icon info" "reorder reorder btns btns";}
-  /* Row 1: drag + pos + icon + info */
-  .admin-cat-item .drag-handle{grid-area:handle;font-size:1.2rem;padding:.25rem .15rem;letter-spacing:-.2em;justify-self:start;}
-  .admin-cat-item .cat-pos{grid-area:pos;min-width:28px;padding:.25rem .5rem;font-size:.7rem;justify-self:start;}
-  .admin-cat-item .ci-icon{grid-area:icon;width:38px;height:38px;font-size:1.2rem;border-radius:10px;}
-  .admin-cat-item .ci-icon img{width:1.2rem;height:1.2rem;}
-  .admin-cat-item .ci-info{grid-area:info;min-width:0;}
-  .admin-cat-item .ci-name{font-size:.9rem;}
-  .admin-cat-item .ci-id{font-size:.66rem;}
-  /* Row 2: ▲▼ on left, edit + delete on right */
-  .admin-cat-item .cat-reorder-controls{grid-area:reorder;flex-direction:row;gap:.4rem;justify-self:start;border-top:1px dashed var(--border);padding-top:.5rem;}
-  .admin-cat-item .cat-reorder-controls button{width:38px;height:36px;font-size:.85rem;border-radius:9px;padding:0;}
-  .admin-cat-item .pi-btns{grid-area:btns;gap:.4rem;justify-self:end;border-top:1px dashed var(--border);padding-top:.5rem;}
-  .admin-cat-item .pi-btn{width:38px;height:38px;font-size:.95rem;border-radius:10px;}
+  .admin-tab{flex:0 0 auto;padding:.5rem .7rem;font-size:.72rem;min-height:36px;border-radius:8px;white-space:nowrap;scroll-snap-align:start;}
+  /* ── Project items — compact row ── */
+  .admin-project-list{max-height:none;gap:.5rem;}
+  .admin-project-item{padding:.65rem .75rem;gap:.6rem;}
+  .admin-project-item .pi-icon{width:38px;height:38px;font-size:1.2rem;border-radius:9px;}
+  .pi-name{font-size:.85rem;}
+  .pi-cat{font-size:.66rem;gap:.35rem;}
+  .pi-cat .pi-status{font-size:.58rem;padding:.12rem .4rem;}
+  .pi-btns{gap:.35rem;}
+  .pi-btn{width:34px;height:34px;font-size:.8rem;border-radius:8px;}
+  /* ── Category items — single straight row on mobile ── */
+  .admin-cat-list{max-height:none;gap:.5rem;}
+  .admin-cat-item{padding:.6rem .75rem;gap:.5rem;align-items:center;display:flex;}
+  .admin-cat-item .drag-handle{font-size:1rem;padding:.15rem .1rem;letter-spacing:-.2em;}
+  .admin-cat-item .cat-pos{min-width:22px;padding:.18rem .35rem;font-size:.62rem;}
+  .admin-cat-item .ci-icon{width:30px;height:30px;font-size:1rem;border-radius:8px;}
+  .admin-cat-item .ci-icon img{width:1rem;height:1rem;}
+  .admin-cat-item .ci-info{flex:1;min-width:0;}
+  .admin-cat-item .ci-name{font-size:.82rem;line-height:1.2;}
+  .admin-cat-item .ci-id{font-size:.58rem;margin-top:0;}
+  .admin-cat-item .cat-reorder-controls{flex-direction:row;gap:.22rem;}
+  .admin-cat-item .cat-reorder-controls button{width:28px;height:26px;font-size:.65rem;border-radius:6px;}
+  .admin-cat-item .pi-btns{gap:.25rem;}
+  .admin-cat-item .pi-btn{width:32px;height:32px;font-size:.8rem;border-radius:8px;}
   /* Login modal */
-  .admin-lock-icon{font-size:2.2rem;margin-bottom:.4rem;}
-  .admin-body .modal-subtitle{font-size:1.05rem;}
-  .admin-body p.hint{font-size:.78rem;margin-bottom:1.1rem;}
+  .admin-lock-icon{font-size:2rem;margin-bottom:.35rem;}
+  .admin-body .modal-subtitle{font-size:1rem;}
+  .admin-body p.hint{font-size:.74rem;margin-bottom:1rem;}
   /* Icon toggle */
-  .icon-field-wrap .icon-toggle button{padding:.55rem .5rem;min-height:42px;font-size:.72rem;}
-  .icon-toggle{gap:.4rem;}
-  .icon-upload-label{padding:.55rem .9rem;font-size:.78rem;min-height:42px;}
-  /* Reorder hint banner */
-  .cat-reorder-hint{padding:.7rem .85rem;font-size:.74rem;line-height:1.5;border-radius:11px;}
+  .icon-field-wrap .icon-toggle button{padding:.5rem .45rem;min-height:40px;font-size:.7rem;}
+  .icon-toggle{gap:.35rem;}
+  .icon-upload-label{padding:.5rem .8rem;font-size:.74rem;min-height:40px;}
+  /* Reorder hint banner — compact */
+  .cat-reorder-hint{padding:.55rem .75rem;font-size:.7rem;line-height:1.45;border-radius:10px;margin-bottom:.7rem;gap:.45rem;}
+  .cat-reorder-hint>span:first-child{font-size:.95rem;}
   /* Admin strip */
-  .admin-strip{padding:.55rem 1rem;font-size:.72rem;flex-wrap:wrap;gap:.45rem;justify-content:center;text-align:center;}
+  .admin-strip{padding:.5rem .9rem;font-size:.7rem;flex-wrap:wrap;gap:.4rem;justify-content:center;text-align:center;}
   .admin-strip span{flex:1 1 100%;text-align:center;}
-  .admin-strip button{padding:.45rem .9rem;font-size:.72rem;min-height:38px;}
+  .admin-strip button{padding:.4rem .8rem;font-size:.7rem;min-height:36px;}
   /* Category filter chips */
-  .cat-filter{gap:.4rem;margin-bottom:1.05rem;}
-  .cat-filter button{padding:.42rem .85rem;font-size:.74rem;min-height:38px;border-radius:100px;}
+  .cat-filter{gap:.35rem;margin-bottom:.8rem;}
+  .cat-filter button{padding:.32rem .7rem;font-size:.7rem;min-height:32px;border-radius:100px;}
   /* Export box */
-  .export-box{padding:1rem;}
-  .export-box strong{font-size:.8rem;}
-  .export-box p{font-size:.76rem;}
-  .export-count{font-size:.76rem;margin-top:.7rem;}
+  .export-box{padding:.85rem;}
+  .export-box strong{font-size:.76rem;}
+  .export-box p{font-size:.72rem;}
+  .export-count{font-size:.72rem;margin-top:.6rem;}
   /* Empty state */
-  .admin-empty{padding:2rem 1.1rem;font-size:.82rem;}
-  .admin-empty strong{font-size:.88rem;}
+  .admin-empty{padding:1.6rem .9rem;font-size:.78rem;}
+  .admin-empty strong{font-size:.84rem;}
+  .admin-empty::before{font-size:1.6rem;margin-bottom:.35rem;}
   /* GH publish box */
-  #gh-publish-btn{padding:.85rem;font-size:.88rem;min-height:48px;}
-  #gh-token-input{padding:.82rem .95rem;font-size:.92rem;min-height:48px;}
+  #gh-publish-btn{padding:.75rem;font-size:.84rem;min-height:44px;}
+  #gh-token-input{padding:.72rem .85rem;font-size:.88rem;min-height:44px;}
   /* Icon preview */
-  .icon-img-preview{width:46px;height:46px;}
+  .icon-img-preview{width:42px;height:42px;}
+  /* Add New Category form — tighter */
+  .admin-cat-item ~ div .admin-form-grid{gap:.55rem;}
+  .admin-cat-item ~ div .admin-actions{margin-top:.6rem;}
 }
 /* Tiny phones */
 @media(max-width:380px){
-  .admin-cat-item .ci-info{min-width:calc(100% - 180px);}
-  .pi-name{font-size:.86rem;}
-  .cat-reorder-controls button{width:30px;height:30px;}
-  .pi-btn{width:36px;height:36px;}
+  .admin-cat-item .drag-handle{font-size:.9rem;}
+  .admin-cat-item .cat-pos{min-width:22px;padding:.15rem .32rem;font-size:.58rem;}
+  .admin-cat-item .ci-icon{width:28px;height:28px;font-size:.95rem;border-radius:7px;}
+  .admin-cat-item .ci-icon img{width:.95rem;height:.95rem;}
+  .admin-cat-item .ci-name{font-size:.8rem;}
+  .admin-cat-item .ci-id{font-size:.56rem;}
+  .admin-cat-item .cat-reorder-controls button{width:26px;height:26px;font-size:.62rem;}
+  .admin-cat-item .pi-btn{width:30px;height:30px;font-size:.76rem;}
+  .pi-name{font-size:.82rem;}
+  .pi-btn{width:32px;height:32px;}
+  .admin-project-item .pi-icon{width:34px;height:34px;font-size:1.05rem;}
 }
 `;
 function injectAdminStyles() {
