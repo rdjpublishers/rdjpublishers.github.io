@@ -484,17 +484,16 @@ body.admin-mode .trigger-dot{box-shadow:0 0 0 2px #22c55e55;background:#22c55e;}
    MOBILE RESPONSIVE — placed at the end so it wins specificity
    ══════════════════════════════════════════════════════════════ */
 @media(max-width:599px){
-  /* Modal becomes full-width bottom sheet — compact so it fits the screen */
-  .admin-modal-wrap{padding:0;align-items:flex-end;}
-  .admin-modal{border-radius:18px 18px 0 0;max-width:100%;max-height:96vh;animation:modalPopUp .28s cubic-bezier(.4,0,.2,1) both;}
-  @keyframes modalPopUp{from{transform:translateY(100%);}to{transform:none;}}
-  .admin-modal::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--border);border-radius:100px;}
+  /* Modal — centered floating card with margin all around (not edge-to-edge) */
+  .admin-modal-wrap{padding:14px;align-items:center;justify-content:center;}
+  .admin-modal{border-radius:18px;max-width:380px;width:100%;max-height:calc(100vh - 28px);animation:modalPop .26s cubic-bezier(.4,0,.2,1) both;}
+  .admin-modal::before{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--border);border-radius:100px;opacity:.6;}
   /* Head bar */
-  .admin-modal-head{padding:.7rem .85rem;}
-  .admin-modal-head .modal-title{font-size:.95rem;}
-  .admin-modal-head small{font-size:.58rem;}
-  .admin-close-btn{width:32px;height:32px;font-size:.9rem;}
-  .admin-body{padding:.7rem .85rem 1.1rem;}
+  .admin-modal-head{padding:.65rem .8rem;}
+  .admin-modal-head .modal-title{font-size:.92rem;}
+  .admin-modal-head small{font-size:.56rem;}
+  .admin-close-btn{width:30px;height:30px;font-size:.85rem;}
+  .admin-body{padding:.65rem .8rem 1rem;}
   /* Forms */
   .admin-row{grid-template-columns:1fr;gap:.55rem;}
   .admin-fg.full{grid-column:auto;}
