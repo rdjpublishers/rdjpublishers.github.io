@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
+<script src="/assets/consent.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -149,10 +150,8 @@ footer nav a:hover{color:var(--teal);}
     <p><strong>3.4 Advertising and Google AdSense</strong></p>
     <p>We use Google AdSense to display ads on this website. Third-party vendors, including Google, use cookies to serve ads based on your previous visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and/or other sites on the internet. To learn how Google uses data from sites that use its services, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a>. Our <a href="https://rdjpublishers.com/ads.txt">ads.txt</a> file lists the companies authorised to sell ad space on this site.</p>
 
-    <!-- CONSENT SECTION: enable ONLY after you add a Google-certified consent banner (CMP) for EEA/UK/Swiss visitors.
     <p><strong>3.5 Consent in the EEA, UK and Switzerland</strong></p>
-    <p>If you visit from the European Economic Area, the United Kingdom or Switzerland, we ask for your consent through a consent banner before setting non-essential cookies or showing personalised ads. You can change your choice at any time, and you can still use our tools if you decline. Where consent is not given, ads may be limited to non-personalised ads.</p>
-    -->
+    <p>We use Google Consent Mode. For visitors in the European Economic Area, the United Kingdom and Switzerland, analytics and advertising storage is set to "denied" until you make a choice. Our consent banner appears when your browser's time zone suggests you may be in Europe. You can change your choice at any time using the <a href="#" onclick="return window.rdjOpenConsent?rdjOpenConsent():false;">Cookie settings</a> link in the footer. Your choice is stored in your browser (local storage key <code>rdj_consent_v1</code>) for up to 180 days. You can still use all of our tools if you decline. Where consent is not given, Google may show only limited or non-personalised ads.</p>
 
     <h2>4. Third-Party Services</h2>
     <p>We use the following third-party services that may collect and process your data:</p>
@@ -222,6 +221,7 @@ footer nav a:hover{color:var(--teal);}
     <a href="/contact.html">Contact</a>
     <a href="/privacy-policy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
+    <a href="#" onclick="return window.rdjOpenConsent?rdjOpenConsent():false;">Cookie settings</a>
     <a href="/disclaimer.html">Disclaimer</a>
     <a href="/sitemap.xml">XML Sitemap</a>
   </nav>
