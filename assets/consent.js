@@ -3,17 +3,19 @@
  *
  * - EEA / UK / Switzerland: analytics + ad storage default to "denied" until the visitor chooses.
  * - Everywhere else: defaults to "granted"; visitors can still opt out via "Cookie settings" in the footer.
- * - The banner is shown automatically when the browser time zone looks European (a heuristic, not
- *   geolocation). Google itself applies the region rules to the consent defaults below.
+ * - Consent choices for EEA / UK / Switzerland visitors are collected by Google's certified CMP
+ *   (AdSense > Privacy & messaging > GDPR message, IAB TCF v2.x). This file only sets the Consent
+ *   Mode defaults; Google's message updates them once the visitor chooses.
+ * - The old custom banner is kept only as a fallback for the footer "Cookie settings" link when
+ *   Google's message is not available (e.g. blocked by an ad blocker). It is no longer shown
+ *   automatically, because it is not a Google-certified CMP.
  *
- * NOTE: This is NOT a Google-certified CMP. Google requires a certified CMP to serve personalised
- * ads to EEA/UK/CH users. If you publish Google's free "Privacy & messaging" GDPR message in your
- * AdSense account, set USE_GOOGLE_CMP = true so this banner does not show twice.
+ * SETUP: publish the GDPR message in your AdSense account (see README-consent.txt).
  */
 (function () {
   'use strict';
 
-  var USE_GOOGLE_CMP = false;
+  var USE_GOOGLE_CMP = true;
   var KEY = 'rdj_consent_v1';
   var DAYS = 180;
   var POLICY_URL = '/privacy-policy.html';
@@ -99,7 +101,19 @@
   }
 
   // Footer "Cookie settings" link calls this so visitors can change their choice at any time.
-  window.rdjOpenConsent = function () { show(); return false; };
+  window.rdjOpenConsent = function () {
+    try {
+      // Google's certified CMP (Funding Choices): re-open the privacy & cookie choices dialog.
+      window.googlefc = window.googlefc || {};
+      window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+      if (typeof window.googlefc.showRevocationMessage === 'function') {
+        window.googlefc.showRevocationMessage();
+        return false;
+      }
+    } catch (e) {}
+    show();
+    return false;
+  };
 
   if (!USE_GOOGLE_CMP && !stored && looksEuropean()) {
     if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', show); }

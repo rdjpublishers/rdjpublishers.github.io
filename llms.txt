@@ -1,6 +1,6 @@
 # RDJ Publishers
 
-> RDJ Publishers is a free, no-sign-up collection of browser-based tools, games, and productivity utilities for students and everyday users. Every tool runs entirely client-side — nothing is uploaded to a server.
+> RDJ Publishers is a free, no-sign-up collection of browser-based tools, games, and productivity utilities for students and everyday users. Most tools run entirely in your browser, so your files are not uploaded to a server. The Grammar Checker is the exception: it sends the text you submit to the LanguageTool service.
 
 RDJ Publishers is a small, independent web studio based in Tamil Nadu, India. All tools are free forever, require no login, and work instantly in the browser.
 
@@ -23,15 +23,17 @@ RDJ Publishers is a small, independent web studio based in Tamil Nadu, India. Al
 - [Chess Editor](https://rdjpublishers.com/Chess-Editor/): Set up and edit chess positions
 - [QR Scanner](https://rdjpublishers.com/QR-Scanner/): Scan QR codes using your camera
 - [PDF Toolkit](https://rdjpublishers.com/Pdf-Toolkit/): Merge, split, and edit PDF files
-- [ChromaCut](https://rdjpublishers.com/ChromaCut/): Background removal / color tool
+- [ChromaCut](https://rdjpublishers.com/ChromaCut/): Remove solid-colour backgrounds from images
 - [Image Splitter](https://rdjpublishers.com/Image-Splitter/): Split images into grids
 - [Colour Picker](https://rdjpublishers.com/Colour-Picker/): Pick and copy colour codes
 - [Grammar Checker](https://rdjpublishers.com/Grammar-Checker/): Check grammar in text
 - [Word Game](https://rdjpublishers.com/Word-Game/): Word-guessing game
 - [Touch to Music](https://rdjpublishers.com/Touch-Music/): Interactive music tool
+- [Grid Cam](https://rdjpublishers.com/grid_cam/): Photo mosaic maker
+- [Low Poly 3D](https://rdjpublishers.com/low_poly_3d/): Low-poly 3D model generator
 - [RDJ Blogs](https://rdjpublishers.com/blogs/): Articles and guides from RDJ Publishers
 
 ## Notes
 
-- All tools are 100% free, require no account, and process data locally in the browser.
+- All tools are 100% free, require no account, and most process data locally in the browser (the Grammar Checker sends text to LanguageTool).
 - Optional: See [sitemap.xml](https://rdjpublishers.com/sitemap.xml) for full crawl metadata.

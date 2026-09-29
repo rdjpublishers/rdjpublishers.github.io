@@ -1647,7 +1647,7 @@ function renderAll() {
   if (homePopular) homePopular.innerHTML = popular.map(p => popCardHTML(p)).join('');
   // Stats
   const statEl = document.getElementById('stat-projects');
-  if (statEl) statEl.textContent = projects.filter(p => p.status==='live').length + '+';
+  if (statEl) statEl.textContent = projects.filter(p => p.status==='live').length;
 }
 function projectCardHTML(p) {
   const isLive = p.status === 'live';
