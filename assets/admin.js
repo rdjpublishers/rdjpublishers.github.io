@@ -138,7 +138,7 @@ function generateSitemapHTML() {
   <meta name="description" content="Complete sitemap of all free tools, games, and utilities by RDJ Publishers.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://rdjpublishers.com/sitemap.html">
-  <link rel="icon" href="Logo.png" type="image/png">
+  <link rel="icon" href="Logo.jpg" type="image/jpeg">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
