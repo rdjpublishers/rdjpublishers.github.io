@@ -2,6 +2,13 @@
 //  ADMIN PASSWORD  — stored as SHA-256 hash (not plain text)
 // ══════════════════════════════════════════════════════════════
 const ADMIN_HASH = '26f5f8b67b8a8cf17b2a2e43dc2dea57bfdd1cf27175260280308e356ea8e99d';
+// Recognise both remote (http/https) and local image paths
+// (e.g. "images/icon-123.jpg"). Anything else is treated as a text/emoji icon.
+function isImagePath(v) {
+  if (!v || typeof v !== 'string') return false;
+  if (/^https?:\/\//i.test(v)) return true;
+  return /\.(png|jpe?g|gif|webp|svg|avif|bmp)(\?|#|$)/i.test(v);
+}
 async function checkPassword(input) {
   const enc = new TextEncoder().encode(input);
   const buf = await crypto.subtle.digest('SHA-256', enc);
@@ -85,7 +92,7 @@ function generateSitemapHTML() {
   const year     = new Date().getFullYear();
   function projectCard(p) {
     const lastmod   = p.addedAt ? new Date(p.addedAt).toISOString().slice(0,10) : today;
-    const isImg     = p.icon && p.icon.startsWith('http');
+    const isImg     = isImagePath(p.icon);
     const iconInner = isImg
       ? `<img src="${p.icon}" alt="${p.title || ''} icon" style="width:100%;height:100%;object-fit:cover;display:block;">`
       : (p.icon || '📦');
@@ -927,7 +934,7 @@ function renderAdminList() {
     return;
   }
   el.innerHTML = projects.map(p => {
-    const iconEl = p.icon && p.icon.startsWith('http')
+    const iconEl = isImagePath(p.icon)
       ? `<img src="${p.icon}" alt="${p.title || ''} icon">`
       : (p.icon || '📦');
     const statusPill = p.status === 'live'
@@ -1222,7 +1229,7 @@ function editProject(id) {
   if (!p) return;
   renderCatSelect();
   // Detect if icon is image URL or emoji
-  if (p.icon && p.icon.startsWith('http')) {
+  if (isImagePath(p.icon)) {
     setIconMode('image');
     const imgPreview = document.getElementById('icon-img-preview');
     if (imgPreview) { imgPreview.src = p.icon; imgPreview.classList.add('visible'); }
@@ -1656,7 +1663,7 @@ function projectCardHTML(p) {
     : '<span class="soon-badge">⏳ Coming Soon</span>';
   const open  = (isLive && p.url) ? `<a class="app-card" href="${p.url}" target="_blank">` : `<div class="app-card${isLive ? '' : ' dim'}">`;
   const close = (isLive && p.url) ? '</a>' : '</div>';
-  const isImgIcon = p.icon && p.icon.startsWith('http');
+  const isImgIcon = isImagePath(p.icon);
   const thumbAttrs = isImgIcon ? '' : '';
   const thumbContent = isImgIcon
     ? `<img src="${p.icon}" alt="${p.title || ''} icon">`
@@ -1686,7 +1693,7 @@ function openDescModal(id) {
   const p = getProjects().find(pr => pr.id === id);
   if (!p) return;
   const fullText = [p.desc, p.details].filter(Boolean).join(' ');
-  const isImgIcon = p.icon && p.icon.startsWith('http');
+  const isImgIcon = isImagePath(p.icon);
   const thumbEl = document.getElementById('descModalThumb');
   thumbEl.className = 'desc-modal-thumb' + (isImgIcon ? ' has-img' : '');
   thumbEl.innerHTML = isImgIcon ? `<img src="${p.icon}" alt="${p.title || ''} icon">` : (p.icon || '📦');
@@ -1702,7 +1709,7 @@ function popCardHTML(p) {
   const attrs  = (isLive && p.url)
     ? `onclick="window.open('${p.url}','_blank')" style="cursor:pointer"`
     : 'style="pointer-events:none;opacity:.55"';
-  const isImgIcon = p.icon && p.icon.startsWith('http');
+  const isImgIcon = isImagePath(p.icon);
   const thumbClass = isImgIcon ? 'pop-thumb has-img' : 'pop-thumb';
   const thumbContent = isImgIcon
     ? `<img src="${p.icon}" alt="${p.title || ''} icon">`
@@ -1812,7 +1819,7 @@ function onSearchInput(val) {
     box.innerHTML = results.map(p => {
       const cat = cats.find(c => c.id === p.category);
       const catName = cat ? cat.name : p.category;
-      const iconEl = p.icon && p.icon.startsWith('http')
+      const iconEl = isImagePath(p.icon)
         ? `<img src="${p.icon}" alt="${p.title || ''} icon">`
         : `<span>${p.icon || '📦'}</span>`;
       const attrs = (p.status === 'live' && p.url)
