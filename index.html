@@ -1,39 +1,899 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index | RDJ Publishers</title>
-  <!-- Analytics (consent + Google tag) -->
-  <script src="https://rdjpublishers.com/assets/consent.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"></script>
+<html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script src="/assets/consent.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-G5M1ZPJW29"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-G5M1ZPJW29');
 </script>
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8728382905346597" crossorigin="anonymous"></script>
-  <!--
-    RDJ Publishers - script fix
-    Repo     : rdjpublishers.github.io
-    File     : https://github.com/rdjpublishers/rdjpublishers.github.io/blob/main/index.html
-    Live URL : https://rdjpublishers.com/
-    Per checklist dated 1 October 2026:
-    - AdSense script was missing -> ADDED
-    - Analytics block already present -> kept (single copy in <head>)
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDJ Publishers — Free Online Tools, Games &amp; Utilities</title>
+<!-- SEO Meta Tags -->
+<meta name="description" content="RDJ Publishers — free online tools, games &amp; utilities for students. No sign-up, no login. 100% free, works instantly in your browser.">
+<meta name="author" content="RDJpublishers">
+<meta name="robots" content="index, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta property="article:published_time" content="2026-04-06">
+<meta property="article:modified_time" content="2026-10-01">
+<!-- Open Graph (WhatsApp, Facebook previews) -->
+<meta property="og:title" content="RDJ Publishers — Free Online Tools, Games &amp; Utilities">
+<meta property="og:description" content="Free tools, games, and utilities for students and everyday users. No sign-up, no cost — just tap and use.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://rdjpublishers.com/">
+<meta property="og:image" content="https://rdjpublishers.com/Logo.png">
+<meta property="og:site_name" content="RDJ Publishers">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RDJ Publishers — Free Online Tools, Games &amp; Utilities">
+<meta name="twitter:description" content="Free tools, games, and utilities for students and everyday users. No sign-up, no cost.">
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "RDJ Publishers",
+  "url": "https://rdjpublishers.com/",
+  "description": "Free online tools, games, utilities, and productivity apps for students and everyday users.",
+  "datePublished": "2026-04-06",
+  "dateModified": "2026-10-01",
+  "author": {
+    "@type": "Organization",
+    "name": "RDJpublishers"
+  }
+}
+</script>
+<!-- JSON-LD FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to install anything to use these tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every tool opens in the browser — on desktop or mobile. You don't need an app, an extension, or an admin password. Just open the page and start using the tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use RDJ Publishers tools on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — every page is built mobile-first. The layout adapts to phone screens, tablets, and laptops, and touch gestures work the way you'd expect. Each tool is tested on a mid-range Android phone over mobile data before it goes live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my files, photos, or PDFs get uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most tools, no. The work happens locally in your browser, so your images and PDFs stay on your device. The one exception is the Grammar Checker, which sends the text you submit to the LanguageTool service; it says so on its page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any usage limits or daily caps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "None that you'll hit by accident. No daily caps, no token limits, and no 'watch an ad to continue' gates. If a tool does have a constraint, it's listed right at the top of the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I suggest a new tool idea?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Please do — roughly a third of what is on this site started as a user suggestion. Send a note through the contact page with what you need and what you wish existed. I read every message."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I report a bug or something that is not working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the contact page. Include the tool name, what you were trying to do, and (if possible) the browser and device. I usually ship a fix within a few days."
+      }
+    }
+  ]
+}
+</script>
+<!-- Canonical -->
+<link rel="canonical" href="https://rdjpublishers.com/">
+<!-- Favicon -->
+<link rel="icon" href="Logo.png" type="image/png">
+<!-- Google AdSense -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0f1e1c;
+  --teal:#0b6e61;
+  --teal-dark:#084d44;
+  --teal-mid:#0d8a79;
+  --teal-pale:#e6f4f2;
+  --gold:#c8892a;
+  --gold-pale:#fdf4e3;
+  --surface:#ffffff;
+  --bg:#f5f7f7;
+  --border:#dde8e6;
+  --muted:#6b8c88;
+  --shadow-sm:0 2px 12px rgba(11,110,97,0.08);
+  --shadow-md:0 6px 28px rgba(11,110,97,0.14);
+  --shadow-lg:0 16px 50px rgba(11,110,97,0.18);
+  --r:14px;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh;animation:fadeUp .3s ease both;}
+.page.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+/* OVERLAY */
+.overlay{position:fixed;inset:0;z-index:200;background:rgba(5,25,22,0.6);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;}
+.overlay.active{opacity:1;pointer-events:all;}
+/* SIDEBAR */
+.sidebar{position:fixed;top:0;left:-300px;bottom:0;width:280px;z-index:300;background:var(--ink);display:flex;flex-direction:column;transition:left .32s cubic-bezier(.4,0,.2,1);box-shadow:6px 0 40px rgba(0,0,0,0.3);}
+.sidebar.open{left:0;}
+.sb-header{padding:1.8rem 1.4rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:space-between;}
+.sb-brand{font-family:var(--serif);font-size:1.2rem;color:#fff;line-height:1.2;}
+.sb-brand small{display:block;font-family:var(--sans);font-size:0.6rem;font-weight:500;color:rgba(255,255,255,0.35);letter-spacing:.2em;text-transform:uppercase;margin-top:3px;}
+.sb-close{background:rgba(255,255,255,0.06);border:none;color:rgba(255,255,255,0.6);width:32px;height:32px;border-radius:50%;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.sb-close:hover{background:rgba(255,255,255,0.14);color:#fff;}
+.sb-nav{flex:1;overflow-y:auto;padding:.8rem 0;}
+.sb-group{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,0.28);font-weight:700;padding:.9rem 1.4rem .3rem;}
+.sb-link{display:flex;align-items:center;gap:.8rem;padding:.7rem 1.4rem;color:rgba(255,255,255,0.65);text-decoration:none;font-size:.88rem;font-weight:500;border-left:3px solid transparent;cursor:pointer;transition:all .2s;background:none;border-top:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:var(--sans);}
+.sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.06);color:#fff;border-left-color:var(--gold);}
+.sb-link .ic{font-size:.95rem;width:20px;text-align:center;}
+.sb-div{height:1px;background:rgba(255,255,255,0.07);margin:.4rem 1.4rem;}
+.sb-foot{padding:.9rem 1.4rem;border-top:1px solid rgba(255,255,255,0.07);font-size:.67rem;color:rgba(255,255,255,0.22);text-align:center;}
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:100;height:62px;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);display:flex;align-items:center;padding:0 1.3rem;border-bottom:1px solid var(--border);box-shadow:0 2px 16px rgba(11,110,97,0.06);}
+.menu-btn{background:var(--teal-pale);border:none;color:var(--teal);width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:all .2s;flex-shrink:0;}
+.menu-btn:hover{background:var(--teal);color:#fff;}
+.menu-btn span{display:block;width:16px;height:2px;background:currentColor;border-radius:2px;}
+.topbar-brand{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-left:.9rem;}
+.topbar-right{margin-left:auto;display:flex;gap:.3rem;align-items:center;}
+.topbar-right a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:600;padding:.35rem .85rem;border-radius:8px;transition:all .2s;cursor:pointer;}
+.topbar-right a:hover{background:var(--teal-pale);color:var(--teal);}
+/* Trigger dot — tiny brand accent in the top-right. Doubles as the owner-only
+   unlock trigger (triple-click). All admin UI is built dynamically by
+   assets/admin.js — nothing admin-related lives in this file. */
+.trigger-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;cursor:pointer;margin-left:.2rem;transition:transform .2s;box-shadow:0 0 0 2px var(--gold-pale);}
+.trigger-dot:hover{transform:scale(1.4);}
+/* BACK BTN */
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-pale);color:var(--teal);border:none;padding:.5rem 1.1rem;border-radius:9px;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;margin:1.3rem 1.3rem 0;transition:all .2s;}
+.back-btn:hover{background:var(--teal);color:#fff;}
+/* HERO BANNER */
+.hero-banner{margin:1.3rem;border-radius:20px;background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal-mid) 100%);padding:2rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;overflow:hidden;position:relative;}
+.hero-banner::before{content:'';position:absolute;top:-40px;right:80px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.hero-banner::after{content:'';position:absolute;bottom:-30px;right:20px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.hero-text h1{font-family:var(--serif);font-size:1.6rem;color:#fff;line-height:1.2;}
+.hero-text h1 em{font-style:italic;color:rgba(255,255,255,0.75);}
+.hero-text p{font-size:.78rem;color:rgba(255,255,255,0.6);margin-top:.5rem;line-height:1.6;}
+.hero-text p.clamped{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.hero-read-more{background:none;border:none;padding:0;margin-top:.35rem;display:block;font-family:inherit;font-size:.76rem;font-weight:600;color:var(--gold);text-decoration:underline;cursor:pointer;}
+.hero-text{flex:1;min-width:0;}
+.hero-explore{display:inline-block;margin-top:1.1rem;background:#fff;color:var(--teal);padding:.55rem 1.3rem;border-radius:9px;font-size:.82rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;font-family:var(--sans);transition:all .2s;}
+.hero-explore:hover{background:var(--gold);color:#fff;}
+.hero-emoji{font-size:4rem;flex-shrink:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2));}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-item summary{list-style:none;cursor:pointer;padding:.85rem 0;font-family:var(--sans);font-weight:600;font-size:.88rem;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:.6rem;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-size:1.2rem;color:var(--teal);flex-shrink:0;transition:transform .2s;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{font-size:.82rem;color:var(--muted);line-height:1.65;padding:0 0 .9rem;}
+/* SECTION HEADER */
+.sec-hd{display:flex;align-items:baseline;justify-content:space-between;padding:0 1.3rem;margin:1.8rem 0 .9rem;}
+.sec-hd h2{font-family:var(--serif);font-size:1.15rem;color:var(--ink);}
+.view-all{font-size:.75rem;color:var(--teal);font-weight:600;cursor:pointer;transition:color .2s;}
+.view-all:hover{color:var(--teal-dark);}
+/* CATEGORY GRID */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;padding:0 1rem;}
+.cat-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r);padding:.8rem .7rem;display:flex;align-items:center;gap:.55rem;cursor:pointer;transition:all .22s;box-shadow:var(--shadow-sm);min-width:0;}
+.cat-card:hover{background:var(--teal-pale);border-color:var(--teal);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.cat-icon{width:34px;height:34px;border-radius:9px;background:var(--teal-pale);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.cat-name{font-size:.78rem;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1;}
+.cat-arrow{margin-left:auto;color:var(--muted);font-size:.85rem;flex-shrink:0;}
+/* POPULAR CARDS */
+.pop-scroll{display:flex;gap:.9rem;padding:0 1.3rem 1.3rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;}
+.pop-scroll::-webkit-scrollbar{display:none;}
+.pop-card{background:var(--surface);border-radius:16px;overflow:hidden;min-width:200px;width:200px;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;flex-shrink:0;transition:all .22s;cursor:pointer;scroll-snap-align:start;}
+.pop-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.pop-thumb{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#f5f7f7 0%,#e9ecef 100%);display:flex;align-items:center;justify-content:center;font-size:2.6rem;overflow:hidden;position:relative;border-bottom:1px solid var(--border);}
+.pop-thumb.has-img{padding:0;background:#fff;}
+.pop-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;padding:12px;}
+.pop-info{padding:.85rem;}
+.pop-cat{font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);font-weight:700;}
+.pop-title{font-size:.88rem;font-weight:700;color:var(--ink);margin:.2rem 0;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.pop-tag{display:inline-block;background:var(--teal-pale);color:var(--teal);font-size:.6rem;padding:.18rem .5rem;border-radius:100px;font-weight:700;margin-top:.25rem;}
+.pop-tag.soon{background:var(--gold-pale);color:var(--gold);}
+/* CATEGORY PAGE */
+.cat-page-hero{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal-mid) 100%);padding:2.2rem 1.5rem 1.8rem;display:flex;align-items:center;gap:1.1rem;}
+.cat-page-hero .big-icon{font-size:2.8rem;line-height:1;}
+.cat-page-hero .big-icon img{width:2.8rem;height:2.8rem;object-fit:contain;border-radius:8px;}
+.cat-page-hero h2{font-family:var(--serif);font-size:1.5rem;color:#fff;}
+.cat-page-hero p{font-size:.78rem;color:rgba(255,255,255,0.6);margin-top:.3rem;}
+.apps-list{padding:1.2rem;display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.app-card{background:var(--surface);border-radius:var(--r);border:1.5px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .22s;cursor:pointer;}
+.app-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--teal);}
+.app-card-thumb{aspect-ratio:1/1;width:100%;background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal-mid) 100%);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;overflow:hidden;padding:0;position:relative;}
+.app-card-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:0;}
+.app-card.dim .app-card-thumb{background:linear-gradient(135deg,#b0bfbd 0%,#c8d4d2 100%);}
+.app-card-body{padding:.6rem .7rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;}
+.app-card-cat{font-size:.55rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:.25rem;}
+.app-card-title{font-size:.85rem;font-weight:700;color:var(--ink);line-height:1.3;}
+.app-card-desc{font-size:.75rem;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1;}
+.app-card-desc.expanded{display:block;-webkit-line-clamp:unset;overflow:visible;}
+.read-more-link{color:var(--teal);font-weight:700;cursor:pointer;white-space:nowrap;font-size:.72rem;display:inline-block;margin-top:.15rem;}
+.app-card-foot{margin-top:.5rem;display:flex;align-items:center;gap:.4rem;}
+.live-badge{background:#e7f9f0;color:#0a8a50;font-size:.6rem;font-weight:700;padding:.18rem .55rem;border-radius:100px;}
+.soon-badge{background:var(--gold-pale);color:var(--gold);font-size:.6rem;font-weight:700;padding:.18rem .55rem;border-radius:100px;}
+.visit-link{font-size:.7rem;font-weight:700;color:var(--teal);margin-left:auto;}
+.app-card.dim{opacity:.5;pointer-events:none;}
+/* ABOUT */
+.about-page{padding:0 1.3rem 2rem;}
+.about-hero{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal-mid) 100%);border-radius:18px;padding:2rem 1.5rem;margin-bottom:1.4rem;text-align:center;}
+.about-hero h2{font-family:var(--serif);font-size:1.4rem;color:#fff;}
+.about-hero p{font-size:.82rem;color:rgba(255,255,255,0.65);margin-top:.5rem;line-height:1.65;}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem;}
+.stat-box{background:var(--surface);border-radius:12px;padding:1.1rem;text-align:center;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);}
+.stat-box .num{font-family:var(--serif);font-size:2rem;color:var(--teal);}
+.stat-box .lbl{font-size:.7rem;color:var(--muted);margin-top:2px;}
+.about-cards{display:flex;flex-direction:column;gap:.8rem;}
+.about-card{background:var(--surface);border-radius:12px;padding:1.2rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);}
+.about-card h4{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.35rem;}
+.about-card p{font-size:.82rem;color:var(--muted);line-height:1.65;}
+/* CONTACT */
+.contact-page{padding:0 1.3rem 2rem;}
+.contact-hero{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal-mid) 100%);border-radius:18px;padding:2rem 1.5rem;margin-bottom:1.4rem;text-align:center;}
+.contact-hero h2{font-family:var(--serif);font-size:1.4rem;color:#fff;}
+.contact-hero p{font-size:.82rem;color:rgba(255,255,255,0.65);margin-top:.5rem;}
+.contact-info{background:var(--surface);border-radius:12px;padding:1.2rem;border:1.5px solid var(--border);margin-bottom:1rem;display:flex;align-items:center;gap:.9rem;box-shadow:var(--shadow-sm);}
+.contact-info .ci-icon{width:42px;height:42px;background:var(--teal-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.contact-info .ci-label{font-size:.68rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em;}
+.contact-info .ci-val{font-size:.9rem;font-weight:700;color:var(--ink);margin-top:2px;}
+.cform{background:var(--surface);border-radius:var(--r);padding:1.4rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);}
+.cform h3{font-family:var(--serif);font-size:1.05rem;margin-bottom:1rem;color:var(--ink);}
+.fg{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.8rem;}
+.fg label{font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;}
+.fg input,.fg textarea{padding:.75rem .95rem;border:1.5px solid var(--border);border-radius:9px;background:var(--bg);font-family:var(--sans);font-size:.87rem;color:var(--ink);outline:none;transition:border-color .2s,background .2s;}
+.fg input:focus,.fg textarea:focus{border-color:var(--teal);background:#fff;}
+.fg textarea{resize:vertical;min-height:110px;}
+.submit-btn{width:100%;background:var(--teal);color:#fff;border:none;padding:.9rem;border-radius:10px;font-family:var(--sans);font-size:.88rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.3rem;}
+.submit-btn:hover{background:var(--teal-dark);transform:translateY(-2px);}
+.page-content{padding-bottom:30px;}
+@media(min-width:600px){
+  .cat-grid{grid-template-columns:1fr 1fr 1fr;}
+  .apps-list{grid-template-columns:1fr 1fr 1fr;}
+  .stat-row{grid-template-columns:repeat(4,1fr);}
+}
+@media(min-width:768px){
+  /* Tablet: 4-col category grid so 4 items fill one row nicely */
+  .cat-grid{grid-template-columns:repeat(4,1fr);}
+  .apps-list{grid-template-columns:repeat(4,1fr);}
+}
+@media(min-width:1024px){
+  /* 6-column tool grid */
+  .apps-list{grid-template-columns:repeat(6,1fr);gap:.6rem;padding:.9rem;}
+  /* Card thumbnail — square container matches image ratio */
+  .app-card-thumb{aspect-ratio:1/1;width:100%;height:auto;font-size:1.6rem;position:relative;}
+  .app-card-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:0;}
+  /* Card body tighter */
+  .app-card-body{padding:.45rem .5rem;}
+  .app-card-cat{font-size:.5rem;margin-bottom:.15rem;}
+  .app-card-title{font-size:.75rem;line-height:1.25;}
+  .app-card-desc{font-size:.65rem;-webkit-line-clamp:2;line-height:1.4;}
+  .app-card-foot{margin-top:.25rem;}
+  .live-badge,.soon-badge{font-size:.52rem;padding:.1rem .38rem;}
+  .visit-link{font-size:.62rem;}
+  /* Category grid 5 cols on home */
+  .cat-grid{grid-template-columns:repeat(5,1fr);}
+  /* Popular section becomes a responsive grid (no scroll) */
+  .pop-scroll{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.85rem;padding:0 1.3rem 1.3rem;overflow:visible;}
+  .pop-card{width:100%;min-width:0;}
+  .pop-title{font-size:.82rem;}
+}
+/* DESC READ-MORE MODAL */
+.desc-modal-wrap{position:fixed;inset:0;z-index:500;background:rgba(5,20,18,.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:1.2rem;}
+.desc-modal-wrap.show{display:flex;}
+.desc-modal{background:var(--surface);border-radius:16px;width:100%;max-width:400px;max-height:min(520px,80vh);border:1.5px solid var(--border);box-shadow:var(--shadow-lg);overflow:hidden;display:flex;flex-direction:column;animation:descPop .22s cubic-bezier(.4,0,.2,1) both;}
+@keyframes descPop{from{opacity:0;transform:scale(.94) translateY(6px);}to{opacity:1;transform:none;}}
+.desc-modal-head{padding:1rem 1.2rem .7rem;display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;flex-shrink:0;}
+.desc-modal-head .modal-title{font-family:var(--serif);font-size:1.05rem;color:var(--ink);line-height:1.3;}
+.desc-modal-close-btn{background:var(--teal-pale);border:none;color:var(--teal);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.desc-modal-close-btn:hover{background:var(--teal);color:#fff;}
+.desc-modal-thumb{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#f5f7f7 0%,#e9ecef 100%);display:flex;align-items:center;justify-content:center;font-size:2.6rem;overflow:hidden;position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-shrink:0;}
+.desc-modal-thumb.has-img{padding:0;background:#fff;}
+.desc-modal-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:12px;}
+.desc-modal-body{padding:.9rem 1.2rem 1.2rem;overflow-y:auto;}
+.desc-modal-body p{font-size:.83rem;color:var(--muted);line-height:1.6;}
+@media(max-width:560px){
+  .desc-modal-wrap{padding:.8rem;}
+  .desc-modal{border-radius:16px;max-height:78vh;}
+  .desc-modal-head{padding:.9rem 1rem .5rem;}
+  .desc-modal-head .modal-title{font-size:.98rem;}
+  .desc-modal-body{padding:.7rem 1rem 1.1rem;}
+}
+/* Toast */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:.7rem 1.4rem;border-radius:100px;font-size:.82rem;font-weight:600;z-index:999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+/* Search bar */
+.search-wrap{padding:.85rem 1.3rem .2rem;position:relative;}
+.search-input{width:100%;padding:.72rem 1rem .72rem 2.6rem;border:1.8px solid var(--border);border-radius:12px;background:#fff;font-family:var(--sans);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;}
+.search-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(11,110,97,0.1);}
+.search-icon{position:absolute;left:2.1rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1rem;pointer-events:none;}
+.search-results{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;margin:.5rem 1.3rem 0;box-shadow:var(--shadow-md);display:none;overflow:hidden;max-height:320px;overflow-y:auto;}
+.search-results.show{display:block;}
+.search-result-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;text-decoration:none;color:inherit;border-bottom:1px solid var(--border);transition:background .15s;cursor:pointer;}
+.search-result-item:last-child{border-bottom:none;}
+.search-result-item:hover{background:var(--teal-pale);}
+.sri-icon{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--teal-dark),var(--teal-mid));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;overflow:hidden;}
+.sri-icon img{width:100%;height:100%;object-fit:cover;}
+.sri-info{flex:1;min-width:0;}
+.sri-title{font-size:.88rem;font-weight:700;color:var(--ink);}
+.sri-cat{font-size:.65rem;color:var(--muted);margin-top:1px;}
+.sri-badge{font-size:.6rem;font-weight:700;padding:.18rem .5rem;border-radius:100px;flex-shrink:0;}
+.sri-badge.live{background:#e7f9f0;color:#0a8a50;}
+.sri-badge.soon{background:var(--gold-pale);color:var(--gold);}
+.search-no-results{padding:1.2rem;text-align:center;color:var(--muted);font-size:.83rem;}
+</style><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+<body class="" style="">
+<!-- TOAST -->
 
-    Each <head> now contains exactly one Analytics block and one AdSense script,
-    in that order, as required by the checklist.
-    Ad units (ins class="adsbygoogle") and page body are untouched.
-  -->
-</head>
-<body>
-  <!--
-    This file is a <head>-fix stub generated from the RDJ Publishers script
-    checklist. Replace everything from <body> onward with the original page
-    content. Only the <head> scripts needed to change.
-  -->
-</body>
-</html>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-header">
+    <div class="sb-brand">RDJ Publishers <small>Navigation</small></div>
+    <button class="sb-close" onclick="closeSidebar()">✕</button>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-group">Main</div>
+    <button class="sb-link active" onclick="goTo('home')"><span class="ic">🏠</span> Home</button>
+    <button class="sb-link" onclick="location.href='/about.html'"><span class="ic">📖</span> About Us</button>
+    <button class="sb-link" onclick="location.href='/contact.html'"><span class="ic">📞</span> Contact</button>
+    <button class="sb-link" onclick="location.href='https://rdjpublishers.com/creator/'"><span class="ic">🎨</span> Creator</button>
+    <div class="sb-div"></div>
+    <div class="sb-group">Browse</div>
+    <div id="sb-cat-links"><button class="sb-link" data-catid="tools" onclick="goToCat('tools')"><span class="ic">🔧</span> Tools</button><button class="sb-link" data-catid="games" onclick="goToCat('games')"><span class="ic">🎮</span> Games</button><button class="sb-link" data-catid="fun" onclick="goToCat('fun')"><span class="ic">🎉</span> Fun</button><button class="sb-link" data-catid="productivity" onclick="goToCat('productivity')"><span class="ic">📈</span> Productivity</button></div>
+  </nav>
+  <div class="sb-div"></div>
+  <button class="sb-link" onclick="location.href='/privacy-policy.html'"><span class="ic">🔒</span> Privacy Policy</button>
+  <button class="sb-link" onclick="location.href='/terms.html'"><span class="ic">📜</span> Terms and Conditions</button>
+  <button class="sb-link" onclick="location.href='/disclaimer.html'"><span class="ic">⚠️</span> Disclaimer</button>
+  <div class="sb-foot">© 2026 RDJ Publishers</div>
+</aside>
+<!-- ══════════════════════════════════════════════
+     DESCRIPTION READ-MORE MODAL
+══════════════════════════════════════════════ -->
+<div class="desc-modal-wrap" id="descModalWrap" onclick="if(event.target===this)closeDescModal()">
+  <div class="desc-modal">
+    <div class="desc-modal-head">
+      <div class="modal-title" id="descModalTitle" role="heading" aria-level="2">Project Details</div>
+      <button class="desc-modal-close-btn" onclick="closeDescModal()">✕</button>
+    </div>
+    <div class="desc-modal-thumb" id="descModalThumb"></div>
+    <div class="desc-modal-body"><p id="descModalText"></p></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">RDJ Publishers</div>
+    <div class="topbar-right">
+      <a href="https://rdjpublishers.com/about.html">About</a>
+      <a href="https://rdjpublishers.com/contact.html">Contact</a>
+      <div class="trigger-dot" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="page-content">
+    <!-- SEARCH BAR -->
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input class="search-input" type="search" id="main-search" placeholder="Search tools, games…" autocomplete="off" oninput="onSearchInput(this.value)" onfocus="onSearchInput(this.value)" onblur="setTimeout(()=&gt;hideSearch(),200)">
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1 id="hero-headline">Free Online Tools,<br>One Tap Away!</h1>
+        <p id="hero-subtext" class="clamped">RDJ Publishers offers free online tools, games, and utilities for students and everyday tasks — no sign-up, no downloads, no cost. Every tool works instantly in your browser.</p>
+        <button type="button" class="hero-read-more" id="heroReadMoreBtn" onclick="toggleHeroSubtext()">Read more</button>
+        <button class="hero-explore" onclick="document.getElementById('home-cats').scrollIntoView({behavior:'smooth'})">Explore →</button>
+      </div>
+      <div class="hero-emoji">🛠️</div>
+    </div>
+    <div id="home-cats">
+      <div class="sec-hd"><h2>Categories</h2></div>
+      <div class="cat-grid" id="home-cat-grid"><div class="cat-card" onclick="goToCat('tools')">
+        <div class="cat-icon">🔧</div>
+        <div class="cat-name">Tools</div>
+        <div class="cat-arrow">›</div>
+      </div><div class="cat-card" onclick="goToCat('games')">
+        <div class="cat-icon">🎮</div>
+        <div class="cat-name">Games</div>
+        <div class="cat-arrow">›</div>
+      </div><div class="cat-card" onclick="goToCat('fun')">
+        <div class="cat-icon">🎉</div>
+        <div class="cat-name">Fun</div>
+        <div class="cat-arrow">›</div>
+      </div><div class="cat-card" onclick="goToCat('productivity')">
+        <div class="cat-icon">📈</div>
+        <div class="cat-name">Productivity</div>
+        <div class="cat-arrow">›</div>
+      </div></div>
+    </div>
+    <div class="sec-hd" style="margin-top:2rem;"><h2>Popular Projects</h2><span class="view-all" onclick="goToCat(getCategories()[0]?.id||'tools')">View all ›</span></div>
+    <p style="margin:0 1.3rem .8rem;font-size:.78rem;color:var(--ink-soft);line-height:1.6;">A quick look at what people open most — handy utilities for everyday tasks, plus a few lighter things for when you need a break. Tap any card to start using it instantly.</p>
+    <div class="pop-scroll" id="homePopular"><div class="pop-card" onclick="window.open('https://rdjpublishers.com/low_poly_3d/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1786496638632.jpg" alt="Low Poly 3D icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🔧 Tools</div>
+      <div class="pop-title">Low Poly 3D</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/grid_cam/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1786257191200.jpg" alt="Grid Cam icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🔧 Tools</div>
+      <div class="pop-title">Grid Cam</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/blogs/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1785301078444.png" alt="RDJ BLOGS icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">📈 Productivity</div>
+      <div class="pop-title">RDJ BLOGS</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/digital_calculator/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1782962756241.png" alt="Digital Calculator icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🔧 Tools</div>
+      <div class="pop-title">Digital Calculator</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/3d-model-viewer/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1780978285465.jpg" alt="3D Model Viewer icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🔧 Tools</div>
+      <div class="pop-title">3D Model Viewer</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/Prompt-Gallery/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1780366587027.png" alt="Prompt Gallery icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🔧 Tools</div>
+      <div class="pop-title">Prompt Gallery</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/Touch-Music/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1779005125825.png" alt="Touch to Music icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🎉 Fun</div>
+      <div class="pop-title">Touch to Music</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div><div class="pop-card" onclick="window.open('https://rdjpublishers.com/Word-Game/','_blank')" style="cursor:pointer">
+    <div class="pop-thumb has-img"><img src="images/icon-1778559653217.png" alt="Word Game icon"></div>
+    <div class="pop-info">
+      <div class="pop-cat">🎮 Games</div>
+      <div class="pop-title">Word Game</div>
+      <span class="pop-tag">● Live</span>
+    </div>
+  </div></div>
+    <!-- AdSense content block — provides meaningful page content -->
+    <div style="margin:1.5rem 1.3rem 0;background:#fff;border-radius:14px;padding:1.4rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);font-size:.85rem;line-height:1.75;color:var(--ink);">
+      <h2 style="font-family:var(--serif);font-size:1.1rem;color:var(--teal);margin-bottom:.6rem;">Free Online Tools, Games &amp; Utilities — By RDJ Publishers</h2>
+      <p>RDJ Publishers is a hand-built collection of <strong>browser-based tools, games, and utilities</strong> that load in one tap and stay out of your way. No downloads, no installs, no account creation, and no surprise paywall at the bottom of the screen. Whether you have five seconds or five hours, every page here is designed to do a single job, do it well, and let you move on with your day.</p>
+
+      <h2 style="font-family:var(--serif);font-size:.97rem;color:var(--ink);margin:1rem 0 .4rem;">What Kind Of Tools Will You Find?</h2>
+      <p>Every project on the site falls into one of four categories — and I add new ones regularly:</p>
+      <ul style="margin:.3rem 0 .3rem 1.2rem;padding:0;">
+        <li><strong>Tools</strong> — an attendance calculator, a calculator suite (age, date difference, EMI, GST, income tax, CGPA and more), a PDF toolkit, a QR scanner and generator, ChromaCut (a solid-colour background remover), an image splitter, a colour picker, a grammar checker, a 3D model viewer, Grid Cam (a photo-mosaic maker), a Low Poly 3D model generator, and a prompt gallery.</li>
+        <li><strong>Games</strong> — lightweight browser games, a two-player chess game, a chess position editor, and a daily 5-letter word game, that open with a single tap and don't ask for an account.</li>
+        <li><strong>Fun</strong> — playful experiments like Touch to Music, an instrument playground with 20+ instrument sounds, built just to make you smile or spark an idea.</li>
+        <li><strong>Productivity</strong> — the RDJ Publishers blog, with articles on tech trends, web technologies and online tools.</li>
+      </ul>
+
+      <h2 style="font-family:var(--serif);font-size:.97rem;color:var(--ink);margin:1rem 0 .4rem;">What Makes These Tools Different?</h2>
+      <p>Most "free tool" sites are bloated, ad-saturated, or quietly harvest your uploads. I took the opposite route. My pages load in under two seconds on a slow 4G connection, the layout works on a six-inch phone screen, and for most tools the actual work — converting, editing, calculating — happens locally in your browser. That means there's no queue, no upload wait, and no privacy tax for using the tool in the first place.</p>
+
+      <h2 style="font-family:var(--serif);font-size:.97rem;color:var(--ink);margin:1rem 0 .4rem;">About Me — Who Is Behind RDJ Publishers?</h2>
+      <p>RDJ Publishers is an independent, one-person web studio run by me, Ratheesh, a developer and B.Tech student from Trichy, Tamil Nadu, India. There's no board, no funding round, and no growth team deciding what to build next — just me, building the tools I kept wishing I had, and then rebuilding them slightly better the next weekend. You can read more on my <a href="/creator/" style="color:var(--teal);">creator page</a>.</p>
+      <p>The first tool I ever shipped was a tiny attendance calculator I used in college. After that, the catalogue mostly grew the same way: friends texting me "hey, can you also build…?" at odd hours, classmates asking for one more converter before an assignment was due, and a couple of cousins who wanted a chess board that worked on their phone without an account. Today the site carries a mix of those requests and a handful of my own experiments — and the line between the two is honestly blurry.</p>
+      <p>I'm a one-person studio, which means you'll hear back if you write in, you'll see bugs fixed within a few days, and you'll get the same tool you saw last week the next time you load the page. I don't pretend to be building "the next big platform." What I want is simple: a corner of the internet where you can get a small thing done without signing up, watching a 30-second ad, or handing over your inbox.</p>
+
+      <h2 style="font-family:var(--serif);font-size:.97rem;color:var(--ink);margin:1rem 0 .4rem;">How The Tools Actually Work</h2>
+      <p>The short version: most tools run entirely in your browser, not on my servers. When you drop a photo into an editor or paste numbers into a calculator, your input is processed by JavaScript running on your own device, and I never receive your file. There is one exception: the <strong>Grammar Checker</strong> sends the text you submit to the LanguageTool service to be checked, and says so on its own page. Open the page, use the tool, close the tab. If you want to keep your work, hit the download button; if you don't, it disappears with the tab.</p>
+
+      <h2 style="font-family:var(--serif);font-size:.97rem;color:var(--ink);margin:1rem 0 .4rem;">Who Are These Tools For?</h2>
+      <p>Students writing assignments at 2 AM. Teachers prepping handouts on a train. Small business owners who don't want to pay $30 a month for an image converter. Anyone, really, who appreciates opening a link and getting straight to the tool. Most of what I build came out of messages visitors sent me, so if you're a regular here — thank you, and keep the suggestions coming.</p>
+
+      <h2 style="font-family:var(--serif);font-size:.97rem;color:var(--ink);margin:1rem 0 .4rem;">A Quick Word On Privacy</h2>
+      <p>I don't ask for your email. I don't ask for your phone number. I don't track which specific files you open. I use Google Analytics to see anonymous, aggregated traffic data so I know which tools are actually getting used, and Google AdSense to show ads; both use cookies, and visitors in the EEA, UK and Switzerland are asked for consent first. The full breakdown, including how to opt out, lives in the <a href="/privacy-policy.html" style="color:var(--teal);">Privacy Policy</a>.</p>
+    </div>
+    <!-- FAQ -->
+    <div class="sec-hd" style="margin-top:2rem;"><h2>Frequently Asked Questions</h2></div>
+    <div style="margin:0 1.3rem 1.5rem;background:#fff;border-radius:14px;padding:.2rem 1.2rem;border:1.5px solid var(--border);box-shadow:var(--shadow-sm);">
+      <details class="faq-item">
+        <summary>Do I need to install anything to use these tools?</summary>
+        <p>No. Every tool opens in your browser — on desktop or mobile. You don't need an app, an extension, or an admin password. Just open the page and start using the tool.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I use RDJ Publishers tools on my phone?</summary>
+        <p>Yes — every page is built mobile-first. The layout adapts to phone screens, tablets, and laptops, and touch gestures work the way you'd expect. Each tool is tested on a mid-range Android phone over mobile data before it goes live.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will my files, photos, or PDFs get uploaded to a server?</summary>
+        <p>For most tools, no. The work happens locally in your browser, so your images and PDFs stay on your device. The one exception is the Grammar Checker, which sends the text you submit to the LanguageTool service; it says so on its page.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are there any usage limits or daily caps?</summary>
+        <p>None that you'll hit by accident. No daily caps, no token limits, and no "watch an ad to continue" gates. If a tool does have a constraint, it's listed right at the top of the page.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I suggest a new tool idea?</summary>
+        <p>Please do — roughly a third of what is on this site started as a user suggestion. Drop me a note via the <a href="/contact.html" style="color:var(--teal);">Contact page</a> with what you need and what you wish existed. I read every message.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I report a bug or something that isn't working?</summary>
+        <p>Use the <a href="/contact.html" style="color:var(--teal);">Contact page</a>. Include the tool name, what you were trying to do, and (if possible) the browser and device. I usually ship a fix within a few days.</p>
+      </details>
+    </div>
+  </div>
+</div>
+<!-- DYNAMIC CATEGORY PAGE -->
+<div class="page" id="page-cat-view">
+  <div class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand" id="cat-view-topbar-brand">Games</div>
+  </div>
+  <div class="page-content">
+    <div class="cat-page-hero" id="cat-view-hero">
+      <div class="big-icon" id="cat-view-icon">🎮</div>
+      <div><h2 id="cat-view-title">Games</h2><p id="cat-view-desc">Fun browser games you can play instantly</p></div>
+    </div>
+    <button class="back-btn" onclick="goTo('home')">← Back to Home</button>
+    <div class="apps-list" id="cat-view-list"><a class="app-card" href="https://rdjpublishers.com/Word-Game/" target="_blank">
+    <div class="app-card-thumb"><img src="images/icon-1778559653217.png" alt="Word Game icon"></div>
+    <div class="app-card-body">
+      <div class="app-card-title">Word Game</div>
+      <div class="app-card-desc" id="desc-p1778559661056">Play Word Game, the free daily 5-letter word-guessing game made by RDJ Publishers. Guess the hidden word in 6 tries — no sign-up, no cost. Daily &amp; Infinite modes. Works on any device.</div><span class="read-more-link" id="rm-p1778559661056" style="display: none;" onclick="event.preventDefault();event.stopPropagation();openDescModal('p1778559661056')">Read more</span>
+      <div class="app-card-foot"><span class="live-badge">● Live</span><span class="visit-link">Visit →</span></div>
+    </div>
+  </a><a class="app-card" href="https://rdjpublishers.com/Chess-Editor/" target="_blank">
+    <div class="app-card-thumb"><img src="images/icon-1777015909721.png" alt="Chess Editor icon"></div>
+    <div class="app-card-body">
+      <div class="app-card-title">Chess Editor</div>
+      <div class="app-card-desc" id="desc-p1777015913350">Chess Editor by RDJpublishers: Set up any custom chess position, analyze setups, and play instantly. No sign-up, no download. Perfect for chess vloggers and content creators.</div><span class="read-more-link" id="rm-p1777015913350" style="display: none;" onclick="event.preventDefault();event.stopPropagation();openDescModal('p1777015913350')">Read more</span>
+      <div class="app-card-foot"><span class="live-badge">● Live</span><span class="visit-link">Visit →</span></div>
+    </div>
+  </a><a class="app-card" href="https://rdjpublishers.com/Chess-Game/" target="_blank">
+    <div class="app-card-thumb"><img src="images/icon-1777015766639.png" alt="Chess Game icon"></div>
+    <div class="app-card-body">
+      <div class="app-card-title">Chess Game</div>
+      <div class="app-card-desc" id="desc-p2">Chess Master is a free two-player chess game you can play right in your browser. Challenge a friend in Chess Duo mode - no download, no sign-up needed. Full chess rules: castling, en passant, pawn promotion, check and checkmate. Built by RDJpublishers.</div><span class="read-more-link" id="rm-p2" style="display: none;" onclick="event.preventDefault();event.stopPropagation();openDescModal('p2')">Read more</span>
+      <div class="app-card-foot"><span class="live-badge">● Live</span><span class="visit-link">Visit →</span></div>
+    </div>
+  </a></div>
+  </div>
+</div>
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">About Us</div>
+  </div>
+  <div class="page-content">
+    <button class="back-btn" onclick="goTo('home')">← Back to Home</button>
+    <div class="about-page">
+      <div class="about-hero">
+        <h2>Who is RDJ Publishers?</h2>
+        <p id="about-mission-text">I build free, simple, and useful web tools for students and everyday users. No sign-up. No cost. Just useful tools.</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="num" id="stat-projects">19</div><div class="lbl">Live Projects</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="lbl">Free Forever</div></div>
+        <div class="stat-box"><div class="num">0</div><div class="lbl">Login Needed</div></div>
+        <div class="stat-box"><div class="num">4</div><div class="lbl">Categories</div></div>
+      </div>
+      <div class="about-cards">
+        <div class="about-card"><h3>🎯 My Mission</h3><p>To build practical tools that solve real everyday problems — especially for students and everyday users.</p></div>
+        <div class="about-card"><h3>⚡ Always Free</h3><p>Every tool on RDJ Publishers is completely free. No hidden charges, no subscriptions, no sign-up required. Ever.</p></div>
+        <div class="about-card"><h3>🔨 Always Growing</h3><p>New tools are added regularly across multiple categories. Got an idea? Send me a message through the contact page!</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="topbar">
+    <button class="menu-btn" onclick="openSidebar()"><span></span><span></span><span></span></button>
+    <div class="topbar-brand">Contact Us</div>
+  </div>
+  <div class="page-content">
+    <button class="back-btn" onclick="goTo('home')">← Back to Home</button>
+    <div class="contact-page">
+      <div class="contact-hero">
+        <h2>Get In Touch</h2>
+        <p>Have a suggestion, idea, or feedback?<br>I'd love to hear from you!</p>
+      </div>
+      <div class="contact-info">
+        <div class="ci-icon">📧</div>
+        <div>
+          <div class="ci-label">Email Me</div>
+          <div class="ci-val"><a href="mailto:RDJpublishers@gmail.com" class="contact-link">RDJpublishers@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="cform">
+        <h3>Send a Message</h3>
+        <div id="cform-fields">
+          <div class="fg"><label>Your Name</label><input type="text" id="cf-name" placeholder="e.g. Rahul"></div>
+          <div class="fg"><label>Email Address</label><input type="email" id="cf-email" placeholder="you@email.com"></div>
+          <div class="fg"><label>Subject</label><input type="text" id="cf-subject" placeholder="e.g. Tool suggestion"></div>
+          <div class="fg"><label>Message</label><textarea id="cf-message" placeholder="Your message, idea, or feedback..."></textarea></div>
+          <div id="cf-err" style="font-size:.78rem;color:#d93025;margin-bottom:.5rem;display:none;"></div>
+          <button class="submit-btn" onclick="submitContactForm()">Send Message ✉️</button>
+        </div>
+        <div id="cform-success" style="display:none;text-align:center;padding:2rem 1rem;">
+          <div style="font-size:2.5rem;margin-bottom:.6rem;">✅</div>
+          <div style="font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:.3rem;">Message Sent!</div>
+          <div style="font-size:.83rem;color:var(--muted);">Thanks for reaching out. I'll get back to you soon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+  ══════════════════════════════════════════════════════════════
+  EMBEDDED DATA — updated automatically on every Export.
+  Do NOT manually edit the JSON. Use the Admin Panel instead.
+  ══════════════════════════════════════════════════════════════
+-->
+<script id="rdj-data" type="application/json">
+{
+  "projects": [
+    {
+      "id": "p1",
+      "icon": "images/icon-1777015709845.png",
+      "category": "tools",
+      "title": "Attendance Calculator",
+      "desc": "A fast, free, and offline-ready Attendance Percentage Calculator. Instantly know your current attendance %, how many more periods you need, and how many days to attend to hit your target.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/attendance-calculator/"
+    },
+    {
+      "id": "p2",
+      "icon": "images/icon-1777015766639.png",
+      "category": "games",
+      "title": "Chess Game",
+      "desc": "Chess Master is a free two-player chess game you can play right in your browser. Challenge a friend in Chess Duo mode - no download, no sign-up needed. Full chess rules: castling, en passant, pawn promotion, check and checkmate. Built by RDJpublishers.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Chess-Game/"
+    },
+    {
+      "id": "p1775525818763",
+      "icon": "images/icon-1777015742845.png",
+      "category": "tools",
+      "title": "QR-Scanner",
+      "desc": "QR Scanner & Generator\nFast, free & privacy-friendly — no app download needed",
+      "status": "live",
+      "url": "https://rdjpublishers.com/QR-Scanner/"
+    },
+    {
+      "id": "p1777015913350",
+      "addedAt": 1777015913350,
+      "icon": "images/icon-1777015909721.png",
+      "category": "games",
+      "title": "Chess Editor",
+      "desc": "Chess Editor by RDJpublishers: Set up any custom chess position, analyze setups, and play instantly. No sign-up, no download. Perfect for chess vloggers and content creators.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Chess-Editor/"
+    },
+    {
+      "id": "p1777345765563",
+      "addedAt": 1777345765563,
+      "icon": "images/icon-1777345740634.png",
+      "category": "tools",
+      "title": "Pdf Toolkit",
+      "desc": "Free online PDF tools by RDJ Publishers. Merge, Split, Compress, OCR, Edit, Watermark, Encrypt, Convert PDF to Image & Text — 36+ tools running entirely in your browser. No upload, no sign-up, no file size limits. 100% private and secure.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Pdf-Toolkit/"
+    },
+    {
+      "id": "p1777350404246",
+      "addedAt": 1777350404247,
+      "icon": "images/icon-1777350397458.png",
+      "category": "tools",
+      "title": "ChromaCut",
+      "desc": "ChromaCut removes any solid‑color background instantly. Pick a color, adjust tolerance, download transparent PNG. 100% private – runs in your browser. Free tool by RDJ Publishers.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/ChromaCut/"
+    },
+    {
+      "id": "p1777650947078",
+      "addedAt": 1777650947078,
+      "icon": "images/icon-1777650939147.png",
+      "category": "tools",
+      "title": "Image Splitter",
+      "desc": "Free browser-based image splitter. Split JPG, PNG, and WebP images into tiles with custom grids. No upload, no signup – works entirely in your browser.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Image-Splitter/"
+    },
+    {
+      "id": "p1777915163318",
+      "addedAt": 1777915163319,
+      "icon": "images/icon-1777915151129.png",
+      "category": "tools",
+      "title": "Colour Picker",
+      "desc": "Free browser-based colour picker tool. Upload any image and click to instantly extract HEX, RGB, and HSL colour values. No upload, no signup – works entirely in your browser.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Colour-Picker/"
+    },
+    {
+      "id": "p1778175451466",
+      "addedAt": 1778175451466,
+      "icon": "images/icon-1778175441559.png",
+      "category": "tools",
+      "title": "Grammar Checker",
+      "desc": "Free browser-based grammar and spell checker. Instantly check writing for errors. No sign-up needed. Text you check is sent to the LanguageTool service to find errors.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Grammar-Checker/"
+    },
+    {
+      "id": "p1778559661056",
+      "addedAt": 1778559661056,
+      "icon": "images/icon-1778559653217.png",
+      "category": "games",
+      "title": "Word Game",
+      "desc": "Play Word Game, the free daily 5-letter word-guessing game made by RDJ Publishers. Guess the hidden word in 6 tries — no sign-up, no cost. Daily & Infinite modes. Works on any device.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Word-Game/",
+      "details": "Play Word Game, the free daily 5-letter word-guessing game made by RDJ Publishers. Guess the hidden word in 6 tries — no sign-up, no cost. Daily & Infinite modes. Works on any device."
+    },
+    {
+      "id": "p1779005142841",
+      "addedAt": 1779005142841,
+      "icon": "images/icon-1779005125825.png",
+      "category": "fun",
+      "title": "Touch to Music",
+      "desc": "Play 20+ real instrument sounds: Piano, Guitar, Flute, Violin, Sitar, Trumpet, Drums and more. 12 scales, 16 visual effects, recording. 100% free by RDJ Publishers.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Touch-Music/"
+    },
+    {
+      "id": "p1780366606776",
+      "addedAt": 1780366606776,
+      "icon": "images/icon-1780366587027.png",
+      "category": "tools",
+      "title": "Prompt Gallery",
+      "desc": "Spark your next great idea with the RDJ Publishers Prompt Gallery – a growing library of hand‑picked prompts for AI art, creative writing, and brainstorming. Browse, copy, paste, and create. No sign‑up, no limits, always free.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/Prompt-Gallery/"
+    },
+    {
+      "id": "p1780978289864",
+      "addedAt": 1780978289864,
+      "icon": "images/icon-1780978285465.jpg",
+      "category": "tools",
+      "title": "3D Model Viewer",
+      "desc": "Free browser-based 3D model viewer. Open GLTF, GLB, OBJ, STL and FBX files instantly – no upload, no sign-up, all processing stays on your device.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/3d-model-viewer/"
+    },
+    {
+      "id": "p1782962387819",
+      "addedAt": 1782962387819,
+      "icon": "images/icon-1782962756241.png",
+      "category": "tools",
+      "title": "Digital Calculator",
+      "desc": "Free online calculators for every need: age calculator, date difference & birthday countdown, EMI & loan calculator, GST calculator, income tax, SGPA/CGPA & attendance percentage, BMI & BMR, percentage calculators and more. Fast, accurate, 100% browser-based, no sign-up.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/digital_calculator/"
+    },
+    {
+      "id": "p1785301086359",
+      "addedAt": 1785301086359,
+      "icon": "images/icon-1785301078444.png",
+      "category": "productivity",
+      "title": "RDJ BLOGS",
+      "desc": "RDJ Publishers Blog explores categories like Tech Trends, Internet Culture, Digital Innovation, and Web Technologies — delivering insightful takes on the evolving digital landscape and emerging online tools.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/blogs/"
+    },
+    {
+      "id": "p1786257196257",
+      "addedAt": 1786257196257,
+      "icon": "images/icon-1786257191200.jpg",
+      "category": "tools",
+      "title": "Grid Cam",
+      "desc": "Grid Cam turns your camera into a photo mosaic maker, right inside your browser. Choose a grid layout — square, rectangle, or circle — and capture or import a photo for each tile. Reposition, zoom, and rotate every shot until it fits just right, then apply a filter to tie the whole mosaic together. Once you're happy, download your finished collage.",
+      "details": "Grid Cam turns your camera into a photo mosaic maker, right inside your browser. Choose a grid layout — square, rectangle, or circle — and capture or import a photo for each tile. Reposition, zoom, and rotate every shot until it fits just right, then apply a filter to tie the whole mosaic together. Once you're happy, download your finished collage.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/grid_cam/"
+    },
+    {
+      "id": "p1786496642944",
+      "addedAt": 1786496642944,
+      "icon": "images/icon-1786496638632.jpg",
+      "category": "tools",
+      "title": "Low Poly 3D",
+      "desc": "Low Poly 3D — AI-Assisted Low-Poly 3D Model Generator A single-file web app (low_poly_3d.html) that turns text prompts or reference images into low-poly, stylized 3D models — now supporting JSON, JavaScript, and TypeScript build formats, guided by a fidelity-focused spec (v7.8) that locks in style, proportions, and materials before generation.",
+      "details": "Low Poly 3D — AI-Assisted Low-Poly 3D Model Generator A single-file web app (low_poly_3d.html) that turns text prompts or reference images into low-poly, stylized 3D models — now supporting JSON, JavaScript, and TypeScript build formats, guided by a fidelity-focused spec (v7.8) that locks in style, proportions, and materials before generation.",
+      "status": "live",
+      "url": "https://rdjpublishers.com/low_poly_3d/"
+    }
+  ],
+  "meta": {
+    "heroHeadline": "Free Online Tools,\nOne Tap Away!",
+    "heroSubtext": "RDJ Publishers offers free online tools, games, and utilities for students and everyday tasks — no sign-up, no downloads, no cost. Every tool works instantly in your browser.",
+    "aboutMission": "I build free, simple, and useful web tools for students and everyday users. No sign-up. No cost. Just useful tools."
+  },
+  "categories": [
+    {
+      "id": "tools",
+      "name": "Tools",
+      "icon": "🔧",
+      "desc": "Handy tools built for students and everyday users"
+    },
+    {
+      "id": "games",
+      "name": "Games",
+      "icon": "🎮",
+      "desc": "Fun browser games you can play instantly"
+    },
+    {
+      "id": "fun",
+      "name": "Fun",
+      "icon": "🎉",
+      "desc": "Fun and entertaining experiences for everyone"
+    },
+    {
+      "id": "productivity",
+      "name": "Productivity",
+      "icon": "📈",
+      "desc": "Tools to help you stay organised and focused"
+    }
+  ]
+}
+</script>
+<script src="assets/admin.js" defer=""></script>
+<footer style="border-top:1px solid #dde8e6;background:#fff;padding:1.1rem 1.2rem .9rem;text-align:center;font-size:.72rem;color:#6b8c88;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:.55rem;margin-bottom:.7rem;flex-wrap:wrap;">
+    <img src="Logo.png" alt="RDJ Publishers - free online tools logo" style="width:32px;height:32px;border-radius:8px;display:block;object-fit:cover;">
+    <a href="mailto:rdjpublishers@gmail.com" style="color:#6b8c88;text-decoration:none;font-size:.85rem;font-weight:500;">rdjpublishers@gmail.com</a>
+  </div>
+  <nav style="display:flex;gap:1.05rem;justify-content:center;flex-wrap:wrap;margin-bottom:.55rem;">
+    <a href="https://rdjpublishers.com/" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Home</a>
+    <a href="https://rdjpublishers.com/about.html" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">About</a>
+    <a href="https://rdjpublishers.com/contact.html" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Contact</a>
+    <a href="https://rdjpublishers.com/privacy-policy.html" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Privacy</a>
+    <a href="https://rdjpublishers.com/terms.html" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Terms</a>
+    <a href="#" onclick="return window.rdjOpenConsent?rdjOpenConsent():false;" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Cookie settings</a>
+    <a href="https://rdjpublishers.com/disclaimer.html" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Disclaimer</a>
+    <a href="/sitemap.xml" style="color:#0f1e1c;text-decoration:none;font-size:.84rem;font-weight:500;">Sitemap</a>
+  </nav>
+  <div style="color:#6b8c88;font-size:.72rem;max-width:780px;margin:0 auto .5rem;line-height:1.5;padding:0 .4rem;">Advertising on this site may be served by Google AdSense using cookies or device-level identifiers. See our <a href="https://rdjpublishers.com/privacy-policy.html" style="color:#6b8c88;text-decoration:underline;text-underline-offset:2px;">Privacy Policy</a> for details and opt-out information.</div>
+  <div style="color:#6b8c88;font-size:.72rem;">© RDJ Publishers · All rights reserved.</div>
+</footer>
+
+
+
+</body></html>
